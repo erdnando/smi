@@ -187,7 +187,8 @@ document.addEventListener('DOMContentLoaded', function() {
      };
   if (btn2) btn2.onclick = function(e) { e.preventDefault(); setTimeout(() => {
         showContactoFormWithDemo();
-      }, 100);};
+      }, 100);
+    };
 
   if (contactoBtn && contactoFloat && closeContacto && contactoForm && contactoSuccess) {
     contactoBtn.addEventListener('click', function(e) {
@@ -242,26 +243,33 @@ document.addEventListener('DOMContentLoaded', function() {
     window.requestAnimationFrame(step);
   }
 
-  // Only animate when stats section is visible (on scroll)
+  // Use Intersection Observer for stats section
   let statsAnimated = false;
-  function animateStatsIfVisible() {
+  function animateStats() {
     const statsSection = document.querySelector('.stats-section');
     if (!statsSection || statsAnimated) return;
-    const rect = statsSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      // Animate each stat
-      const statEls = statsSection.querySelectorAll('.stat h2');
-      if (statEls.length >= 3) {
-        animateCounter(statEls[0].querySelector('span') ? statEls[0] : statEls[0], 600, 1200, ' +');
-        animateCounter(statEls[1].querySelector('span') ? statEls[1] : statEls[1], 8000, 1200, ' Mil +');
-        animateCounter(statEls[2].querySelector('span') ? statEls[2] : statEls[2], 100000, 1200, ' Mil +');
-      }
-      statsAnimated = true;
+    // Animate each stat
+    const statEls = statsSection.querySelectorAll('.stat h2');
+    if (statEls.length >= 3) {
+      animateCounter(statEls[0].querySelector('span') ? statEls[0] : statEls[0], 600, 1200, ' +');
+      animateCounter(statEls[1].querySelector('span') ? statEls[1] : statEls[1], 8000, 1200, ' Mil +');
+      animateCounter(statEls[2].querySelector('span') ? statEls[2] : statEls[2], 100000, 1200, ' Mil +');
     }
+    statsAnimated = true;
   }
-  window.addEventListener('scroll', animateStatsIfVisible);
-  window.addEventListener('DOMContentLoaded', animateStatsIfVisible);
-  window.addEventListener('resize', animateStatsIfVisible);
+
+  const statsSection = document.querySelector('.stats-section');
+  if (statsSection) {
+    const observer = new window.IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !statsAnimated) {
+          animateStats();
+          observer.unobserve(statsSection);
+        }
+      });
+    }, { threshold: 0.7 }); // Trigger when 30% visible
+    observer.observe(statsSection);
+  }
 
   // --- Testimonials Carousel Auto-Move ---
   (function() {
@@ -307,4 +315,35 @@ document.addEventListener('DOMContentLoaded', function() {
     showSlide(current);
     startAuto();
   })();
+
+  
+  // Hamburger menu logic (runs on all pages)
+  const hamburger = document.getElementById('hamburger-menu');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+
+    hamburger.addEventListener('click', function() {
+      console.log('clicked hamburger');
+
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+
+
+
+    
+
+
+
+  
+
+
+
 });
