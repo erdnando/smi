@@ -316,34 +316,32 @@ document.addEventListener('DOMContentLoaded', function() {
     startAuto();
   })();
 
+  // Simple and robust hamburger menu implementation
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
   
-  // Hamburger menu logic (runs on all pages)
-  const hamburger = document.getElementById('hamburger-menu');
-  const navLinks = document.getElementById('nav-links');
   if (hamburger && navLinks) {
-
-    hamburger.addEventListener('click', function() {
-      console.log('clicked hamburger');
-
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
+      hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('open');
       });
-    });
+
+      // Close menu when clicking nav links
+      const links = navLinks.getElementsByTagName('a');
+      for (let i = 0; i < links.length; i++) {
+          links[i].addEventListener('click', function() {
+              hamburger.classList.remove('active');
+              navLinks.classList.remove('open');
+          });
+      }
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+          if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+              hamburger.classList.remove('active');
+              navLinks.classList.remove('open');
+          }
+      });
   }
-
-
-
-    
-
-
-
-  
-
-
 
 });
