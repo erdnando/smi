@@ -191,32 +191,64 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
   if (contactoBtn && contactoFloat && closeContacto && contactoForm && contactoSuccess) {
+    // GOOGLE_SHEET_URL is now set in settings.js
+    
     contactoBtn.addEventListener('click', function(e) {
       e.preventDefault();
       contactoFloat.style.display = 'block';
     });
+    
     closeContacto.addEventListener('click', function() {
       contactoFloat.style.display = 'none';
     });
+    
     contactoForm.addEventListener('submit', function(e) {
       e.preventDefault();
+      const submitBtn = contactoForm.querySelector('button[type="submit"]');
+      const errorDiv = document.getElementById('contacto-error');
+      
       // Get form data
       const nombre = contactoForm.elements['nombre'].value.trim();
+      const telefono = contactoForm.elements['telefono'].value.trim();
       const email = contactoForm.elements['email'].value.trim();
       const mensaje = contactoForm.elements['mensaje'].value.trim();
-      // WhatsApp message
-      const waNumber = (typeof WHATSAPP_NUMBER !== 'undefined') ? WHATSAPP_NUMBER : '5215612072138';
-      const waText = `Hola, soy ${nombre} (%20${email}).%0A${mensaje}`;
-      const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`;
-      window.open(waUrl, '_blank');
-      // Optionally show success and close modal
-      contactoSuccess.style.display = 'block';
-      setTimeout(() => {
+
+      // Disable the submit button
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+      
+      // Prepare the data
+      const formData = {
+        telefono: telefono,
+        email: email,
+        mensaje: mensaje
+      };
+
+      // Use global GOOGLE_SHEET_URL
+      fetch(GOOGLE_SHEET_URL, {
+        method: 'POST',
+        body: JSON.stringify(formData)
+      })
+      .then(response => {
+        // Even if CORS blocks reading the response, the request succeeded if we get here
+        contactoSuccess.style.display = 'block';
+        errorDiv.style.display = 'none';
+        setTimeout(() => {
+          contactoSuccess.style.display = 'none';
+          contactoFloat.style.display = 'none';
+          contactoForm.reset();
+        }, 1800);
+      })
+      .catch(error => {
+        errorDiv.style.display = 'block';
         contactoSuccess.style.display = 'none';
-        contactoFloat.style.display = 'none';
-        contactoForm.reset();
-      }, 1800);
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar';
+      });
     });
+
     // Optional: close popup when clicking outside
     document.addEventListener('click', function(e) {
       if (contactoFloat.style.display === 'block' && !contactoFloat.contains(e.target) && e.target !== contactoBtn) {
@@ -299,49 +331,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function startAuto() {
-      if (interval) clearInterval(interval);
-      interval = setInterval(nextSlide, intervalTime);
-    }
-
-    function stopAuto() {
-      if (interval) clearInterval(interval);
-      interval = null;
-    }
-
-    carousel.addEventListener('mouseenter', stopAuto);
-    carousel.addEventListener('mouseleave', startAuto);
-
-    // Initialize
-    showSlide(current);
-    startAuto();
-  })();
-
-  // Simple and robust hamburger menu implementation
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-  
-  if (hamburger && navLinks) {
-      hamburger.addEventListener('click', function() {
-          hamburger.classList.toggle('active');
-          navLinks.classList.toggle('open');
-      });
-
-      // Close menu when clicking nav links
-      const links = navLinks.getElementsByTagName('a');
-      for (let i = 0; i < links.length; i++) {
-          links[i].addEventListener('click', function() {
-              hamburger.classList.remove('active');
-              navLinks.classList.remove('open');
-          });
-      }
-
-      // Close menu when clicking outside
-      document.addEventListener('click', function(e) {
-          if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-              hamburger.classList.remove('active');
-              navLinks.classList.remove('open');
-          }
-      });
-  }
-
-});
+      if

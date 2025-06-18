@@ -970,6 +970,19 @@ nav a:hover {
   margin-top: 0.5rem;
   text-align: center;
 }
+.contacto-error {
+  background-color: #ff5252;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 4px;
+  margin-top: 1rem;
+  display: none;
+}
+.contacto-form button[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
 /* --- Utility and Layout Classes for Inline Style Refactor --- */
 
 .flex-center {
@@ -1299,6 +1312,19 @@ nav a:hover {
   font-size: 0.95rem;
   margin-top: 0.5rem;
   text-align: center;
+}
+.contacto-error {
+  background-color: #ff5252;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 4px;
+  margin-top: 1rem;
+  display: none;
+}
+.contacto-form button[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 /* Hamburger menu styles */
