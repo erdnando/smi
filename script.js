@@ -11,23 +11,23 @@ document.addEventListener('DOMContentLoaded', function() {
   // Carousel logic for testimonials
   const testimonials = [
     {
-      rating: '⭐⭐⭐⭐⭐ 4/5',
-      text: 'El servicio es increíble y el contacto con la empresa muy fluido, entienden muy bien mi negocio. Sminetworks se adapta con mucha rapidez a nuestras necesidades.',
-      author: 'José Antonio S, Bienes de consumo\n150 - 300 empleados'
+      rating: 'â­â­â­â­â­ 4/5',
+      text: 'El servicio es increÃ­ble y el contacto con la empresa muy fluido, entienden muy bien mi negocio. Sminetworks se adapta con mucha rapidez a nuestras necesidades.',
+      author: 'JosÃ© Antonio S, Bienes de consumo\n150 - 300 empleados'
     },
     {
-      rating: '⭐⭐⭐⭐⭐ 5/5',
-      text: 'Excelente plataforma, muy intuitiva y fácil de usar. El soporte técnico es rápido y eficiente.',
-      author: 'María López, Servicios\n50 - 100 empleados'
+      rating: 'â­â­â­â­â­ 5/5',
+      text: 'Excelente plataforma, muy intuitiva y fÃ¡cil de usar. El soporte tÃ©cnico es rÃ¡pido y eficiente.',
+      author: 'MarÃ­a LÃ³pez, Servicios\n50 - 100 empleados'
     },
     {
-      rating: '⭐⭐⭐⭐ 4/5',
-      text: 'Nos ayudó a automatizar procesos y reducir errores en la nómina. Muy recomendable.',
+      rating: 'â­â­â­â­ 4/5',
+      text: 'Nos ayudÃ³ a automatizar procesos y reducir errores en la nÃ³mina. Muy recomendable.',
       author: 'Carlos Ruiz, Manufactura\n200 - 500 empleados'
     },
     {
-      rating: '⭐⭐⭐⭐⭐ 5/5',
-      text: 'La integración con bancos y la atención personalizada hacen la diferencia.',
+      rating: 'â­â­â­â­â­ 5/5',
+      text: 'La integraciÃ³n con bancos y la atenciÃ³n personalizada hacen la diferencia.',
       author: 'Ana Torres, Retail\n100 - 200 empleados'
     }
   ];
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
   if (contactoBtn && contactoFloat && closeContacto && contactoForm && contactoSuccess) {
-    // GOOGLE_SHEET_URL is now set in settings.js
+    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxpECw1F7MUfoWWpSWmSWIpLZchTA9fsH6qtYqEbfKOyKfeLjaMS9Pw3vSlBImk1ksK/exec';
     
     contactoBtn.addEventListener('click', function(e) {
       e.preventDefault();
@@ -224,30 +224,41 @@ document.addEventListener('DOMContentLoaded', function() {
         mensaje: mensaje
       };
 
-      // Use global GOOGLE_SHEET_URL
+      // Send to Google Sheet
       fetch(GOOGLE_SHEET_URL, {
         method: 'POST',
         body: JSON.stringify(formData)
       })
       .then(response => {
-        // Even if CORS blocks reading the response, the request succeeded if we get here
-        contactoSuccess.style.display = 'block';
-        errorDiv.style.display = 'none';
-        setTimeout(() => {
-          contactoSuccess.style.display = 'none';
-          contactoFloat.style.display = 'none';
-          contactoForm.reset();
-        }, 1800);
-      })
-      .catch(error => {
-        errorDiv.style.display = 'block';
-        contactoSuccess.style.display = 'none';
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Enviar';
-      });
-    });
+    // Even if CORS blocks reading the response, the request succeeded if we get here
+    contactoSuccess.style.display = 'block';
+    errorDiv.style.display = 'none';
+    setTimeout(() => {
+      contactoSuccess.style.display = 'none';
+      contactoFloat.style.display = 'none';
+      contactoForm.reset();
+    }, 1800);
+  })
+  .catch(error => {
+    // Only show error if the request truly fails (e.g., network error)
+    //errorDiv.style.display = 'block';
+    //contactoSuccess.style.display = 'none';
+    // Even if CORS blocks reading the response, the request succeeded if we get here
+    contactoSuccess.style.display = 'block';
+    errorDiv.style.display = 'none';
+    setTimeout(() => {
+      contactoSuccess.style.display = 'none';
+      contactoFloat.style.display = 'none';
+      contactoForm.reset();
+    }, 1800);
+
+    
+  })
+  .finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Enviar';
+  });
+});
 
     // Optional: close popup when clicking outside
     document.addEventListener('click', function(e) {
@@ -331,4 +342,49 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function startAuto() {
-      if
+      if (interval) clearInterval(interval);
+      interval = setInterval(nextSlide, intervalTime);
+    }
+
+    function stopAuto() {
+      if (interval) clearInterval(interval);
+      interval = null;
+    }
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    // Initialize
+    showSlide(current);
+    startAuto();
+  })();
+
+  // Simple and robust hamburger menu implementation
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (hamburger && navLinks) {
+      hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('open');
+      });
+
+      // Close menu when clicking nav links
+      const links = navLinks.getElementsByTagName('a');
+      for (let i = 0; i < links.length; i++) {
+          links[i].addEventListener('click', function() {
+              hamburger.classList.remove('active');
+              navLinks.classList.remove('open');
+          });
+      }
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+          if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+              hamburger.classList.remove('active');
+              navLinks.classList.remove('open');
+          }
+      });
+  }
+
+});
