@@ -1,6 +1,86 @@
+/* --- Brand Color Palette --- */
+:root {
+  --brand-blue: #1565c0;
+  --brand-blue-dark: #0d47a1;
+  --brand-blue-light: #e3f2fd;
+  --brand-accent: #1976d2;
+  --brand-green: #25d366;
+  --brand-bg: #f4f8fc;
+  --brand-white: #fff;
+  --brand-black: #111;
+  --brand-gray: #e0e0e0;
+  --brand-gradient: linear-gradient(90deg, #1565c0 0%, #1976d2 100%);
+  --brand-green-gradient: linear-gradient(90deg, #25d366 0%, #1565c0 100%);
+}
+
+/* Green highlight utility */
+.highlight-green {
+  color: var(--brand-green) !important;
+}
+
+/* CTA buttons: blue-green gradient, green on hover */
+.btn-main,
+.contacto-submit {
+  background: var(--brand-green-gradient);
+  color: var(--brand-white);
+  border: none;
+  border-radius: 2rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(21, 101, 192, 0.1);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.btn-main:hover,
+.contacto-submit:hover {
+  background: linear-gradient(90deg, #1565c0 0%, #25d366 100%);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.18);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* WhatsApp floating button: green border and shadow */
+.whatsapp-float {
+  border: 2.5px solid var(--brand-green);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.18);
+}
+.whatsapp-float:hover {
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.28),
+    0 2.5px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.08) rotate(6deg);
+}
+
+/* Testimonial dots: active is green */
+.testimonial-dots .dot.active {
+  background: var(--brand-green);
+}
+
+/* Social icon hover: WhatsApp/email green */
+.footer-social-icon[title~="WhatsApp"],
+.footer-social-icon[title~="Email"] {
+  background: var(--brand-green);
+}
+.footer-social-icon[title~="WhatsApp"]:hover,
+.footer-social-icon[title~="Email"]:hover {
+  background: #1ebe57;
+}
+
+/* Form field focus: green border */
+.contacto-input:focus,
+.contacto-textarea:focus {
+  border: 1.5px solid var(--brand-green);
+  outline: none;
+}
+
+/* Optional: stats underline/accent in green */
+.stat h2 {
+  border-bottom: 3px solid var(--brand-green);
+  display: inline-block;
+  padding-bottom: 0.2em;
+}
+
+/* Allow .highlight-green for headings or spans */
+/* Usage: <span class="highlight-green">text</span> */
+
 body {
   font-family: "Montserrat", Arial, sans-serif;
-  margin: 0;
   background: #f4f6fb;
   color: #222;
 }
@@ -47,6 +127,11 @@ nav ul {
 nav ul li a {
   position: relative;
   transition: color 0.18s cubic-bezier(0.4, 2, 0.6, 1);
+  font-size: 1.13rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0.2em 0.7em;
+  line-height: 1.2;
 }
 nav ul li a::after {
   content: "";
@@ -101,9 +186,71 @@ nav a:hover {
     0 2.5px 12px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px) scale(1.04);
 }
-.stats-section {
-  background: linear-gradient(120deg, #1565c0 0%, #1a237e 100%);
+.color-blue {
+  color: #1565c0;
+}
+.color-blue-dark {
+  color: #1a237e;
+}
+.color-white {
   color: #fff;
+}
+.color-light {
+  color: #e0e0e0;
+}
+.color-dark {
+  color: #222;
+}
+.color-footer {
+  color: #fff;
+}
+
+/* --- Alianzas Images --- */
+.alianza-img-microsoft {
+  max-width: 120px;
+}
+.alianza-img-google {
+  max-width: 60px;
+}
+.alianza-img-amazon {
+  max-width: 120px;
+}
+.alianza-img-facebook {
+  max-width: 60px;
+}
+.alianza-img-reforma {
+  max-width: 180px;
+  box-shadow: 0 2px 8px rgba(200, 0, 143, 0.08);
+  border-radius: 0.5rem;
+}
+/* --- Section-specific Classes (for clarity) --- */
+.hero-section {
+  background: #fff;
+  padding: 4rem 0 3rem 0;
+  text-align: center;
+}
+.stats-section {
+  background: #111;
+  padding: 4rem 0 3rem 0;
+  text-align: center;
+}
+.digitaliza-section {
+  background: linear-gradient(180deg, #fff 60%, #e4f1fc 100%);
+  padding: 4rem 0 3rem 0;
+  text-align: center;
+}
+.alianzas-section {
+  background: #fff;
+  padding: 3rem 0 2rem 0;
+  text-align: center;
+}
+.impacto-section {
+  background: linear-gradient(180deg, #fff 60%, #e4f1fc 100%);
+  padding: 3rem 0 2rem 0;
+  text-align: center;
+}
+.porque-section {
+  background: linear-gradient(180deg, #f7fafd 60%, #fff 100%);
   padding: 4rem 0 3rem 0;
   text-align: center;
 }
@@ -114,7 +261,7 @@ nav a:hover {
   flex-wrap: wrap;
 }
 .stat {
-  background: #1a237e;
+  background: #222;
   border-radius: 1rem;
   padding: 2rem 2.5rem;
   min-width: 180px;
@@ -553,7 +700,7 @@ nav a:hover {
   transition: background 0.2s;
 }
 .testimonial-dots .dot.active {
-  background: #1565c0;
+  background: var(--brand-green);
 }
 .whatsapp-chat-popup {
   display: none;
@@ -983,417 +1130,86 @@ nav a:hover {
   opacity: 0.7;
   cursor: not-allowed;
 }
-/* --- Utility and Layout Classes for Inline Style Refactor --- */
 
-.flex-center {
-  display: flex;
-  align-items: center;
-}
-.flex-gap-05 {
-  gap: 0.5rem;
-}
-.flex-gap-15 {
-  gap: 1.5rem;
-}
-.flex-gap-25 {
-  gap: 2.5rem;
-}
-.flex-gap-3 {
-  gap: 3rem;
-}
-.flex-justify-center {
-  justify-content: center;
-}
-.flex-align-center {
-  align-items: center;
-}
-.flex-wrap {
-  flex-wrap: wrap;
-}
-.text-center {
-  text-align: center;
-}
-.bg-white {
-  background: #fff;
-}
-.bg-dark {
-  background: #111;
-}
-.bg-gradient-blue {
-  background: linear-gradient(180deg, #fff 60%, #e4f1fc 100%);
-}
-.bg-gradient-blue-reverse {
-  background: linear-gradient(180deg, #e4f1fc 60%, #fff 100%);
-}
-.p-4-0-3-0 {
-  padding: 4rem 0 3rem 0;
-}
-.p-3-0-2-0 {
-  padding: 3rem 0 2rem 0;
-}
-.mt-0-5 {
-  margin-top: 0.5rem;
-}
-.m-0-auto-1-5-auto {
-  margin: 0 auto 1.5rem auto;
-}
-.m-0-auto-2-5-auto {
-  margin: 0 auto 2.5rem auto;
-}
-.maxw-700 {
-  max-width: 700px;
-}
-.maxw-600 {
-  max-width: 600px;
-}
-.maxw-120 {
-  max-width: 120px;
-}
-.maxw-60 {
-  max-width: 60px;
-}
-.maxw-180 {
-  max-width: 180px;
-}
-.rounded-1 {
-  border-radius: 1rem;
-}
-.rounded-05 {
-  border-radius: 0.5rem;
-}
-.shadow-1 {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-}
-.shadow-pink {
-  box-shadow: 0 2px 8px rgba(200, 0, 143, 0.08);
-}
-.shadow-blue {
-  box-shadow: 0 4px 16px rgba(21, 101, 192, 0.1),
-    0 1.5px 8px rgba(0, 0, 0, 0.06);
-}
-.fw-700 {
-  font-weight: 700;
-}
-.fw-400 {
-  font-weight: 400;
-}
-.fs-2-5 {
-  font-size: 2.5rem;
-}
-.fs-2-3 {
-  font-size: 2.3rem;
-}
-.fs-2 {
-  font-size: 2rem;
-}
-.fs-1-7 {
-  font-size: 1.7rem;
-}
-.fs-1-3 {
-  font-size: 1.3rem;
-}
-.fs-1-2 {
-  font-size: 1.2rem;
-}
-.fs-1-15 {
-  font-size: 1.15rem;
-}
-.fs-1-1 {
-  font-size: 1.1rem;
-}
-.fs-1-05 {
-  font-size: 1.05rem;
-}
-.color-blue {
-  color: #1565c0;
-}
-.color-blue-dark {
-  color: #1a237e;
-}
-.color-white {
-  color: #fff;
-}
-.color-light {
-  color: #e0e0e0;
-}
-.color-dark {
-  color: #222;
-}
-.color-footer {
-  color: #fff;
-}
-.letter-spacing-1 {
-  letter-spacing: 1px;
-}
-.transition-transform {
-  transition: transform 0.18s cubic-bezier(0.4, 2, 0.6, 1);
-}
-.transition-color {
-  transition: color 0.18s cubic-bezier(0.4, 2, 0.6, 1);
-}
-.text-decoration-none {
-  text-decoration: none;
-}
-.inline-block {
-  display: inline-block;
-}
-.mt-1-5 {
-  margin-top: 1.5rem;
-}
-.m-auto {
-  margin: auto;
-}
-
-/* --- SVG and Image Utility Classes --- */
-.svg-middle {
-  vertical-align: middle;
-}
-
-/* --- Section-specific Classes (for clarity) --- */
-.hero-section {
-  background: #fff;
-  padding: 4rem 0 3rem 0;
-  text-align: center;
-}
-.stats-section {
-  background: #111;
-  padding: 4rem 0 3rem 0;
-  text-align: center;
-}
-.digitaliza-section {
-  background: linear-gradient(180deg, #fff 60%, #e4f1fc 100%);
-  padding: 4rem 0 3rem 0;
-  text-align: center;
-}
-.alianzas-section {
-  background: #fff;
-  padding: 3rem 0 2rem 0;
-  text-align: center;
-}
-.impacto-section {
-  background: linear-gradient(180deg, #fff 60%, #e4f1fc 100%);
-  padding: 3rem 0 2rem 0;
-  text-align: center;
-}
-.porque-section {
-  background: linear-gradient(180deg, #f7fafd 60%, #fff 100%);
-  padding: 4rem 0 3rem 0;
-  text-align: center;
-}
-
-/* --- Remove default margin for h1/h2 in hero --- */
-.hero-section h1 {
-  margin: 0 auto 1.5rem auto;
-  max-width: 700px;
-  line-height: 1.2;
-}
-.hero-section p {
-  margin: 0 auto 2.5rem auto;
-  max-width: 600px;
-}
-
-/* --- Stats Card --- */
-.stat {
-  background: #222;
-  border-radius: 1rem;
-  padding: 2rem 2.5rem;
-  min-width: 180px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-}
-
-/* --- Digitaliza Card --- */
-.digitaliza-card {
-  /* existing styles */
-}
-.digitaliza-card-img img {
-  max-width: 100%;
-  border-radius: 1rem;
-}
-.digitaliza-card-form {
-  /* existing styles */
-}
-.digitaliza-card-legal {
-  font-size: 0.9rem;
-  color: #888;
-  margin-top: 1rem;
-}
-
-/* --- Alianzas Images --- */
-.alianza-img-microsoft {
-  max-width: 120px;
-}
-.alianza-img-google {
-  max-width: 60px;
-}
-.alianza-img-amazon {
-  max-width: 120px;
-}
-.alianza-img-facebook {
-  max-width: 60px;
-}
-.alianza-img-reforma {
-  max-width: 180px;
-  box-shadow: 0 2px 8px rgba(200, 0, 143, 0.08);
-  border-radius: 0.5rem;
-}
-
-/* --- Footer SVG --- */
-.footer-logo svg {
-  vertical-align: middle;
-}
-
-/* --- Misc --- */
-.inline-auto {
-  margin: 0 auto;
-}
-
-/* --- Contacto Float Utility Classes (for servicios.html, productos.html, compania.html) --- */
-.contacto-float {
-  display: none;
-  position: fixed;
-  bottom: 90px;
-  right: 30px;
-  z-index: 9999;
-  background: #fff;
-  border-radius: 1.2rem;
-  box-shadow: 0 8px 32px rgba(21, 101, 192, 0.18),
-    0 2.5px 12px rgba(0, 0, 0, 0.1);
-  padding: 2rem 2rem 1.5rem 2rem;
-  max-width: 340px;
-  width: 90vw;
-}
-.contacto-close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #1565c0;
-  cursor: pointer;
-}
-.contacto-title {
-  margin-top: 0;
-  color: #1565c0;
-  font-weight: 700;
-  font-size: 1.3rem;
-}
-.contacto-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.contacto-input,
-.contacto-textarea {
-  padding: 0.7rem 1rem;
-  border-radius: 0.7rem;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
-.contacto-textarea {
-  min-height: 80px;
-}
-.contacto-submit {
-  background: #1565c0;
-  color: #fff;
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 2rem;
-  font-weight: 600;
-  font-size: 1.1rem;
-  box-shadow: 0 2px 8px rgba(21, 101, 192, 0.08);
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.contacto-success {
-  display: none;
-  color: #00b894;
-  font-size: 0.95rem;
-  margin-top: 0.5rem;
-  text-align: center;
-}
-.contacto-error {
-  background-color: #ff5252;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  border-radius: 4px;
-  margin-top: 1rem;
-  display: none;
-}
-.contacto-form button[disabled] {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-/* Hamburger menu styles */
+/* Hamburger menu fixes */
 .hamburger {
   display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1002;
-}
-.hamburger .bar {
-  width: 28px;
-  height: 4px;
-  background: #1565c0;
-  margin: 4px 0;
-  border-radius: 2px;
-  transition: all 0.3s;
+  padding: 0.5rem;
+  margin-right: 1rem;
 }
 
-@media (max-width: 900px) {
-  nav {
-    position: relative;
-  }
+.hamburger .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background: var(--brand-blue);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Mobile menu styles */
+@media screen and (max-width: 768px) {
   .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 70px;
+    flex-direction: column;
+    background-color: var(--brand-white);
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem 0;
+    gap: 2rem;
+  }
+
+  .nav-links.active {
     display: flex;
   }
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #fff;
-    box-shadow: 0 8px 32px rgba(21, 101, 192, 0.08);
-    flex-direction: column;
-    align-items: flex-start;
-    width: 220px;
-    padding: 1.5rem 1.2rem;
-    gap: 1.2rem;
-    border-radius: 0 0 12px 12px;
-    transform: translateY(-200%);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.35s cubic-bezier(0.4, 0.2, 0.2, 1);
-    z-index: 1001;
-  }
-  .nav-links.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
+
   .nav-links li {
-    width: 100%;
+    margin: 0.5rem 0;
   }
+
+  .nav-links li a {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Hamburger animation */
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Adjust header for mobile */
+  header {
+    padding: 1rem 0;
+  }
+
   .btn-contacto {
     display: none;
   }
-}
 
-/* Hamburger active state (optional for animation) */
-.hamburger.active .bar:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-.hamburger.active .bar:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active .bar:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  /* Add contact button to mobile menu */
+  .nav-links .btn-contacto {
+    display: inline-block;
+    margin: 1rem auto;
+  }
 }

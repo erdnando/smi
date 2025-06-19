@@ -8,26 +8,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Carousel logic for testimonials
+   // Carousel logic for testimonials
   const testimonials = [
     {
-      rating: 'â­â­â­â­â­ 4/5',
-      text: 'El servicio es increÃ­ble y el contacto con la empresa muy fluido, entienden muy bien mi negocio. Sminetworks se adapta con mucha rapidez a nuestras necesidades.',
-      author: 'JosÃ© Antonio S, Bienes de consumo\n150 - 300 empleados'
+      rating: '⭐⭐⭐⭐ 4/5',
+      text: 'El servicio es increible y el contacto con la empresa muy fluido, entienden muy bien mi negocio. Sminetworks se adapta con mucha rapidez a nuestras necesidades.',
+      author: 'Jose Antonio S, Bienes de consumo\n150 - 300 empleados'
     },
     {
-      rating: 'â­â­â­â­â­ 5/5',
-      text: 'Excelente plataforma, muy intuitiva y fÃ¡cil de usar. El soporte tÃ©cnico es rÃ¡pido y eficiente.',
-      author: 'MarÃ­a LÃ³pez, Servicios\n50 - 100 empleados'
+      rating: '⭐⭐⭐⭐⭐ 5/5',
+      text: 'Excelente plataforma, muy intuitiva y fácil de usar. El soporte técnico es rápido y eficiente.',
+      author: 'Maria Lopez, Servicios\n50 - 100 empleados'
     },
     {
-      rating: 'â­â­â­â­ 4/5',
-      text: 'Nos ayudÃ³ a automatizar procesos y reducir errores en la nÃ³mina. Muy recomendable.',
+      rating: '⭐⭐⭐⭐ 4/5',
+      text: 'Nos ayudó a automatizar procesos y reducir errores en la nómina. Muy recomendable.',
       author: 'Carlos Ruiz, Manufactura\n200 - 500 empleados'
     },
     {
-      rating: 'â­â­â­â­â­ 5/5',
-      text: 'La integraciÃ³n con bancos y la atenciÃ³n personalizada hacen la diferencia.',
+      rating: '⭐⭐⭐⭐⭐ 5/5',
+      text: 'La integración con bancos y la atención personalizada hacen la diferencia.',
       author: 'Ana Torres, Retail\n100 - 200 empleados'
     }
   ];
@@ -191,7 +191,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
   if (contactoBtn && contactoFloat && closeContacto && contactoForm && contactoSuccess) {
-    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxpECw1F7MUfoWWpSWmSWIpLZchTA9fsH6qtYqEbfKOyKfeLjaMS9Pw3vSlBImk1ksK/exec';
     
     contactoBtn.addEventListener('click', function(e) {
       e.preventDefault();
@@ -359,32 +358,35 @@ document.addEventListener('DOMContentLoaded', function() {
     startAuto();
   })();
 
-  // Simple and robust hamburger menu implementation
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-  
+  // --- Hamburger menu functionality (single robust implementation) ---
+  const hamburger = document.getElementById('hamburger-menu');
+  const navLinks = document.getElementById('nav-links');
+  const btnContacto = document.getElementById('btn-contacto');
+
   if (hamburger && navLinks) {
-      hamburger.addEventListener('click', function() {
-          hamburger.classList.toggle('active');
-          navLinks.classList.toggle('open');
-      });
+ 
 
-      // Close menu when clicking nav links
-      const links = navLinks.getElementsByTagName('a');
-      for (let i = 0; i < links.length; i++) {
-          links[i].addEventListener('click', function() {
-              hamburger.classList.remove('active');
-              navLinks.classList.remove('open');
-          });
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
       }
+    });
 
-      // Close menu when clicking outside
-      document.addEventListener('click', function(e) {
-          if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-              hamburger.classList.remove('active');
-              navLinks.classList.remove('open');
-          }
+    // Close menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
       });
+    });
   }
 
 });
