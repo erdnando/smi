@@ -16,18 +16,27 @@
                         <img src="img/smilogo.jpg" alt="SMINETWORKS logo" style="height:38px;width:auto;vertical-align:middle;" />
                     </a>
                 </div>
-                <button class="hamburger" aria-label="Abrir menú">
+                <button class="hamburger" id="hamburger-menu" aria-label="Abrir menú">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </button>
-                <ul class="nav-links">
+                <ul class="nav-links" id="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="productos.html">Productos</a></li>
                     <li><a href="servicios.html">Servicios</a></li>
                     <li><a href="compania.html">Compañía</a></li>
+                      <li class="mobile-contacto"><a href="#" class="btn-contacto" id="btn-contacto">
+           
+            <span class="contact-text">Contacto</span>
+          </a></li>
                 </ul>
-                
+                <a href="#" class="btn-contacto desktop-contacto" id="btn-contacto-desktop">
+                    <svg class="contact-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+                    </svg>
+                    <span class="contact-text">Contacto</span>
+                </a>
             </nav>
         </div>
     </header>
@@ -89,5 +98,18 @@
     </a>
     <script src="settings.js"></script>
     <script src="script.js"></script>
+  <div class="contacto-float" id="contacto-float">
+    <button id="close-contacto-float" class="contacto-close">&times;</button>
+    <h3 class="contacto-title">Contáctanos</h3>
+    <form id="contacto-form" class="contacto-form">
+      <input type="text" name="nombre" placeholder="Nombre" required class="contacto-input">
+      <input type="tel" name="telefono" placeholder="Teléfono" required class="contacto-input" pattern="[0-9]{10}">
+      <input type="email" name="email" placeholder="Correo electrónico" required class="contacto-input">
+      <textarea name="mensaje" placeholder="Mensaje" required class="contacto-textarea"></textarea>
+      <button type="submit" class="contacto-submit">Enviar</button>
+      <div id="contacto-success" class="contacto-success">¡Mensaje enviado!</div>
+      <div id="contacto-error" class="contacto-error" style="display:none;">Error al enviar. Por favor, intenta nuevamente.</div>
+    </form>
+  </div>
 </body>
 </html>

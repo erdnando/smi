@@ -206,6 +206,16 @@ nav a:hover {
 }
 
 /* --- Alianzas Images --- */
+.alianzas-logos img {
+  display: block;
+  align-self: center;
+  transition: transform 0.3s ease;
+}
+
+.alianzas-logos img:hover {
+  transform: translateY(-5px);
+}
+
 .alianza-img-microsoft {
   max-width: 120px;
 }
@@ -243,6 +253,15 @@ nav a:hover {
   background: #fff;
   padding: 3rem 0 2rem 0;
   text-align: center;
+}
+.alianzas-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  gap: 2rem;
+  padding: 2rem 0;
+  flex-wrap: wrap;
+  min-height: 100px;
 }
 .impacto-section {
   background: linear-gradient(180deg, #fff 60%, #e4f1fc 100%);
@@ -930,12 +949,26 @@ nav a:hover {
   opacity: 1;
   transform: none;
 }
+
+.slide-down {
+  opacity: 0;
+  transform: translateY(-80px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0.2, 0.6, 1),
+    transform 0.8s cubic-bezier(0.4, 0.2, 0.6, 1);
+}
+
+.slide-down.animated {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-on-scroll,
   .fade-in,
   .fade-in-up,
   .slide-in-left,
-  .slide-in-right {
+  .slide-in-right,
+  .slide-down {
     transition: none !important;
   }
 }
@@ -978,25 +1011,8 @@ nav a:hover {
   .hamburger {
     display: flex;
   }
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #fff;
-    box-shadow: 0 8px 32px rgba(21, 101, 192, 0.08);
-    flex-direction: column;
-    align-items: flex-start;
-    width: 220px;
-    padding: 1.5rem 1.2rem;
-    gap: 1.2rem;
-    border-radius: 0 0 12px 12px;
-    transform: translateY(-200%);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.35s cubic-bezier(0.4, 0.2, 0.2, 1);
-    z-index: 1001;
-  }
-  .nav-links.open {
+  /* Remove this conflicting style as we have a more comprehensive one below */
+  .nav-links.active {
     transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
@@ -1006,6 +1022,93 @@ nav a:hover {
   }
   .btn-contacto {
     display: none;
+  }
+}
+/* Fix hamburger menu visibility and positioning */
+@media screen and (max-width: 768px) {
+  /* Ensure menu appears on top of content */
+  .nav-links.active {
+    display: flex !important;
+    z-index: 1000;
+    top: 70px;
+    visibility: visible;
+  }
+  
+  /* Fix desktop contact button to be hidden on mobile */
+  nav > .btn-contacto {
+    display: none !important;
+  }
+  
+  /* Ensure mobile contact button appears */
+  .mobile-contacto {
+    display: block !important;
+  }
+  
+  .mobile-contacto a {
+    display: inline-block;
+    padding: 0.6rem 1.5rem !important;
+    margin: 0.5rem auto !important;
+    background: var(--brand-blue);
+    color: white !important;
+    border-radius: 2rem;
+    font-weight: 600;
+    width: 80%;
+    text-align: center;
+  }
+  
+  /* Increase visibility of active hamburger */
+  .hamburger.active {
+    z-index: 1001;
+  }
+  
+  /* Ensure consistent spacing */
+  .nav-links li {
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+}
+
+/* Ensure menu animations work properly */
+.nav-links {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Fix for hamburger menu visibility on mobile */
+@media screen and (max-width: 768px) {
+  /* Important specificity fixes to override conflicting rules */
+  .hamburger {
+    display: block !important;
+    z-index: 1005;
+  }
+  
+  .nav-links {
+    display: none !important;
+  }
+  
+  .nav-links.active {
+    display: flex !important;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  .nav-links li {
+    margin: 0.8rem 0;
+    width: 100%;
+  }
+  
+  .nav-links li a {
+    display: inline-block;
+    
+    padding: 0.5rem 0;
   }
 }
 @media (max-width: 700px) {
@@ -1170,10 +1273,15 @@ nav a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 2rem 0;
     gap: 2rem;
+    z-index: 1000;
   }
 
   .nav-links.active {
-    display: flex;
+    display: flex !important;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
   .nav-links li {
@@ -1211,5 +1319,62 @@ nav a:hover {
   .nav-links .btn-contacto {
     display: inline-block;
     margin: 1rem auto;
+  }
+}
+
+/* Style the contact button to look nicer with icon */
+.btn-contacto {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 2px solid var(--brand-blue);
+  color: var(--brand-blue);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-contacto:hover {
+  background-color: var(--brand-blue-light);
+  border-color: var(--brand-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(21, 101, 192, 0.1);
+}
+
+/* Mobile view contact button */
+.mobile-contacto .btn-contacto {
+  //background-color: #fff;
+  color: #1565c0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.mobile-contacto .btn-contacto:hover {
+  background-color: var(--brand-accent);
+}
+
+/* Default states for contact buttons */
+.desktop-contacto {
+  display: flex;
+}
+
+.mobile-contacto {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* On mobile, show mobile contact button and hide desktop contact button */
+  .mobile-contacto {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .desktop-contacto {
+    display: none !important;
   }
 }
