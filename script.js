@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const testimonials = [
     {
       rating: '⭐⭐⭐⭐ 4/5',
-      text: 'El servicio es increible y el contacto con la empresa muy fluido, entienden muy bien mi negocio. Sminetworks se adapta con mucha rapidez a nuestras necesidades.',
+      text: 'El servicio es increible y el contacto con la empresa muy fluido, entienden muy bien mi negocio. SMI Networks se adapta con mucha rapidez a nuestras necesidades.',
       author: 'Jose Antonio S, Bienes de consumo\n150 - 300 empleados'
     },
     {
