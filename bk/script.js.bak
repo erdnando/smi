@@ -7,19 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('Funcionalidad de login no implementada.');
     });
   }
-  
-  // Header scroll effect
-  const header = document.querySelector('header');
-  function onScroll() {
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  }
-  
-  window.addEventListener('scroll', onScroll);
-  onScroll(); // Initial check
 
    // Carousel logic for testimonials
   const testimonials = [
@@ -169,35 +156,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Initial animation for slide-down elements on page load
-  function animateHeroSection() {
-    const slideDownElements = document.querySelectorAll('.slide-down');
-    setTimeout(() => {
-      slideDownElements.forEach(el => {
-        el.classList.add('animated');
-      });
-    }, 100); // Small delay to ensure it animates after page render
-  }
-
-  window.addEventListener('DOMContentLoaded', () => {
-    animateOnScroll();
-    animateHeroSection();
-  });
+  window.addEventListener('DOMContentLoaded', animateOnScroll);
   window.addEventListener('scroll', animateOnScroll);
   window.addEventListener('resize', animateOnScroll);
 
-  // CONTACTO FLOATING FORM LOGIC - New and improved version
+  // CONTACTO FLOATING FORM LOGIC
+  // Using function to ensure elements are found regardless of DOM order
   function initContactForms() {
     console.log("Initializing contact form functionality");
     
-    // Get all contact form elements - using document.querySelector to ensure we look at the entire DOM
-    const contactoBtn = document.querySelector('#btn-contacto');
-    const contactoBtnDesktop = document.querySelector('#btn-contacto-desktop');
-    const contactoFloat = document.querySelector('#contacto-float');
-    const closeContacto = document.querySelector('#close-contacto-float');
-    const contactoForm = document.querySelector('#contacto-form');
-    const contactoSuccess = contactoForm ? contactoForm.querySelector('#contacto-success') : null;
-    const contactoError = contactoForm ? contactoForm.querySelector('#contacto-error') : null;
+    const contactoBtn = document.getElementById('btn-contacto');
+    const contactoBtnDesktop = document.getElementById('btn-contacto-desktop');
+    const contactoFloat = document.getElementById('contacto-float');
+    const closeContacto = document.getElementById('close-contacto-float');
+    const contactoForm = document.getElementById('contacto-form');
+    const contactoSuccess = document.getElementById('contacto-success');
     
     console.log("Contact form elements:", {
       contactoBtn: !!contactoBtn,
@@ -211,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Universal function to show contact form
     function showContactoForm(e) {
       if (e) e.preventDefault();
-      const floatElement = document.querySelector('#contacto-float');
+      const floatElement = document.getElementById('contacto-float');
       if (floatElement) {
         floatElement.style.display = 'block';
         console.log("Contact form opened");
@@ -222,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Utility to show contacto form with demo message
     function showContactoFormWithDemo() {
-      const floatElement = document.querySelector('#contacto-float');
+      const floatElement = document.getElementById('contacto-float');
       const mensajeField = document.querySelector('#contacto-form textarea[name="mensaje"]');
       if (floatElement) floatElement.style.display = 'block';
       if (mensajeField) mensajeField.value = 'Solicito una demo';
@@ -231,8 +204,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Set up solicita buttons
-    const btn1 = document.querySelector('#btn-solicita1');
-    const btn2 = document.querySelector('#btn-solicita2');
+    const btn1 = document.getElementById('btn-solicita1');
+    const btn2 = document.getElementById('btn-solicita2');
     
     if (btn1) {
       btn1.onclick = function(e) { 
@@ -265,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Set up form closing and submission
-    if (contactoFloat && closeContacto && contactoForm) {
+    if (contactoFloat && closeContacto && contactoForm && contactoSuccess) {
       console.log("Setting up contact form submission handlers");
 
       // Handle close button
@@ -277,8 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
       contactoForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const submitBtn = contactoForm.querySelector('button[type="submit"]');
-        const errorDiv = document.querySelector('#contacto-error');
-        const successDiv = document.querySelector('#contacto-success');
+        const errorDiv = document.getElementById('contacto-error');
         
         // Get form data
         const nombre = contactoForm.elements['nombre'].value.trim();
@@ -292,56 +264,40 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Prepare the data
         const formData = {
-          nombre: nombre,
           telefono: telefono,
           email: email,
           mensaje: mensaje
         };
 
-        // Send to Google Sheet - make sure GOOGLE_SHEET_URL is defined in settings.js
-        try {
-          fetch(GOOGLE_SHEET_URL, {
-            method: 'POST',
-            body: JSON.stringify(formData)
-          })
-          .then(response => {
-            // Even if CORS blocks reading the response, the request succeeded if we get here
-            if (successDiv) successDiv.style.display = 'block';
-            if (errorDiv) errorDiv.style.display = 'none';
-            setTimeout(() => {
-              if (successDiv) successDiv.style.display = 'none';
-              if (contactoFloat) contactoFloat.style.display = 'none';
-              contactoForm.reset();
-            }, 1800);
-          })
-          .catch(error => {
-            console.error('Error submitting form:', error);
-            // Fall back to showing success anyway since we can't reliably detect errors
-            if (successDiv) successDiv.style.display = 'block';
-            if (errorDiv) errorDiv.style.display = 'none';
-            setTimeout(() => {
-              if (successDiv) successDiv.style.display = 'none';
-              if (contactoFloat) contactoFloat.style.display = 'none';
-              contactoForm.reset();
-            }, 1800);
-          })
-          .finally(() => {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Enviar';
-          });
-        } catch (err) {
-          console.error('Error in form submission:', err);
-          // Show success anyway as a fallback
-          if (successDiv) successDiv.style.display = 'block';
-          if (errorDiv) errorDiv.style.display = 'none';
+        // Send to Google Sheet
+        fetch(GOOGLE_SHEET_URL, {
+          method: 'POST',
+          body: JSON.stringify(formData)
+        })
+        .then(response => {
+          // Even if CORS blocks reading the response, the request succeeded if we get here
+          contactoSuccess.style.display = 'block';
+          errorDiv.style.display = 'none';
           setTimeout(() => {
-            if (successDiv) successDiv.style.display = 'none';
-            if (contactoFloat) contactoFloat.style.display = 'none';
+            contactoSuccess.style.display = 'none';
+            contactoFloat.style.display = 'none';
             contactoForm.reset();
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Enviar';
           }, 1800);
-        }
+        })
+        .catch(error => {
+          // Even if CORS blocks reading the response, the request succeeded if we get here
+          contactoSuccess.style.display = 'block';
+          errorDiv.style.display = 'none';
+          setTimeout(() => {
+            contactoSuccess.style.display = 'none';
+            contactoFloat.style.display = 'none';
+            contactoForm.reset();
+          }, 1800);
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Enviar';
+        });
       });
       
       // Optional: close popup when clicking outside
@@ -349,17 +305,82 @@ document.addEventListener('DOMContentLoaded', function() {
         if (contactoFloat.style.display === 'block' && 
             !contactoFloat.contains(e.target) && 
             e.target !== contactoBtn &&
-            e.target !== contactoBtnDesktop && 
-            !e.target.closest('.btn-contacto') && 
-            !e.target.closest('.btn-contacto-desktop')) {
+            e.target !== contactoBtnDesktop) {
           contactoFloat.style.display = 'none';
         }
       });
     }
   }
 
-  // Call the initialization function at the end of the page load to ensure all elements are available
+  // Call the initialization function at the end of the page load
   window.addEventListener('load', initContactForms);
+      e.preventDefault();
+      const submitBtn = contactoForm.querySelector('button[type="submit"]');
+      const errorDiv = document.getElementById('contacto-error');
+      
+      // Get form data
+      const nombre = contactoForm.elements['nombre'].value.trim();
+      const telefono = contactoForm.elements['telefono'].value.trim();
+      const email = contactoForm.elements['email'].value.trim();
+      const mensaje = contactoForm.elements['mensaje'].value.trim();
+
+      // Disable the submit button
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+      
+      // Prepare the data
+      const formData = {
+        telefono: telefono,
+        email: email,
+        mensaje: mensaje
+      };
+
+      // Send to Google Sheet
+      fetch(GOOGLE_SHEET_URL, {
+        method: 'POST',
+        body: JSON.stringify(formData)
+      })
+      .then(response => {
+    // Even if CORS blocks reading the response, the request succeeded if we get here
+    contactoSuccess.style.display = 'block';
+    errorDiv.style.display = 'none';
+    setTimeout(() => {
+      contactoSuccess.style.display = 'none';
+      contactoFloat.style.display = 'none';
+      contactoForm.reset();
+    }, 1800);
+  })
+  .catch(error => {
+    // Only show error if the request truly fails (e.g., network error)
+    //errorDiv.style.display = 'block';
+    //contactoSuccess.style.display = 'none';
+    // Even if CORS blocks reading the response, the request succeeded if we get here
+    contactoSuccess.style.display = 'block';
+    errorDiv.style.display = 'none';
+    setTimeout(() => {
+      contactoSuccess.style.display = 'none';
+      contactoFloat.style.display = 'none';
+      contactoForm.reset();
+    }, 1800);
+
+    
+  })
+  .finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Enviar';
+  });
+});
+
+    // Optional: close popup when clicking outside
+    document.addEventListener('click', function(e) {
+      if (contactoFloat.style.display === 'block' && 
+          !contactoFloat.contains(e.target) && 
+          e.target !== contactoBtn &&
+          e.target !== contactoBtnDesktop) {
+        contactoFloat.style.display = 'none';
+      }
+    });
+  }
 
   // --- Animated Counter Logic for Stats Section ---
   function animateCounter(el, target, duration, suffix = '', prefix = '') {
@@ -387,9 +408,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animate each stat
     const statEls = statsSection.querySelectorAll('.stat h2');
     if (statEls.length >= 3) {
-      animateCounter(statEls[0].querySelector('span') ? statEls[0] : statEls[0], 600, 4000, ' +');
-      animateCounter(statEls[1].querySelector('span') ? statEls[1] : statEls[1], 8000, 4000, ' Mil +');
-      animateCounter(statEls[2].querySelector('span') ? statEls[2] : statEls[2], 100000, 4000, ' Mil +');
+      animateCounter(statEls[0].querySelector('span') ? statEls[0] : statEls[0], 600, 1200, ' +');
+      animateCounter(statEls[1].querySelector('span') ? statEls[1] : statEls[1], 8000, 1200, ' Mil +');
+      animateCounter(statEls[2].querySelector('span') ? statEls[2] : statEls[2], 100000, 1200, ' Mil +');
     }
     statsAnimated = true;
   }
@@ -403,7 +424,7 @@ document.addEventListener('DOMContentLoaded', function() {
           observer.unobserve(statsSection);
         }
       });
-    }, { threshold: 0.7 }); // Trigger when 70% visible
+    }, { threshold: 0.7 }); // Trigger when 30% visible
     observer.observe(statsSection);
   }
 
@@ -418,7 +439,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let current = 0;
     let interval = null;
     const slideCount = slides.length;
-    const intervalTime = 2000; // 2 seconds
+    const intervalTime = 3000; // 5 seconds
 
     function showSlide(idx) {
       slides.forEach((slide, i) => {
