@@ -143,7 +143,7 @@
           <span class="footer-logo-text"></span>
         </div>
         <div class="footer-social">
-          <a href="mailto:info@sminetworks.mx" title="Email" class="footer-social-icon" target="_blank">
+          <a href="mailto:info@Sminetworks.mx" title="Email" class="footer-social-icon" target="_blank">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></svg>
           </a>
           <a href="https://www.facebook.com/sminetworks" title="Facebook" class="footer-social-icon" target="_blank">
@@ -183,10 +183,10 @@
     <button id="close-contacto-float" class="contacto-close">&times;</button>
     <h3 class="contacto-title">Contáctanos</h3>
    <form id="contacto-form" class="contacto-form">
-      <input type="text" name="nombre" placeholder="Nombre" required class="contacto-input">
-      <input type="tel" name="telefono" placeholder="Teléfono" required class="contacto-input" pattern="[0-9]{10}">
-      <input type="email" name="email" placeholder="Correo electrónico" required class="contacto-input">
-      <textarea name="mensaje" placeholder="Mensaje" required class="contacto-textarea"></textarea>
+      <input type="text" name="nombre" placeholder="Nombre" required class="contacto-input" maxlength="70">
+      <input type="tel" name="telefono" placeholder="Teléfono" required class="contacto-input" pattern="[0-9]{10}" maxlength="15">
+      <input type="email" name="email" placeholder="Correo electrónico" required class="contacto-input" maxlength="254">
+      <textarea name="mensaje" placeholder="Mensaje" required class="contacto-textarea" maxlength="1000"></textarea>
       <button type="submit" class="contacto-submit">Enviar</button>
       <div id="contacto-success" class="contacto-success">¡Mensaje enviado!</div>
       <div id="contacto-error" class="contacto-error" style="display:none;">Error al enviar. Por favor, intenta nuevamente.</div>

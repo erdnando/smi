@@ -275,10 +275,10 @@
     <button id="close-contacto-float" class="contacto-close">&times;</button>
     <h3 class="contacto-title">Contáctanos</h3>
     <form id="contacto-form" class="contacto-form">
-      <input type="text" name="nombre" placeholder="Nombre" required class="contacto-input">
-      <input type="tel" name="telefono" placeholder="Teléfono" required class="contacto-input" pattern="[0-9]{10}">
-      <input type="email" name="email" placeholder="Correo electrónico" required class="contacto-input">
-      <textarea name="mensaje" placeholder="Mensaje" required class="contacto-textarea"></textarea>
+      <input type="text" name="nombre" placeholder="Nombre" required class="contacto-input" maxlength="70">
+      <input type="tel" name="telefono" placeholder="Teléfono" required class="contacto-input" pattern="[0-9]{10}" maxlength="15">
+      <input type="email" name="email" placeholder="Correo electrónico" required class="contacto-input" maxlength="254">
+      <textarea name="mensaje" placeholder="Mensaje" required class="contacto-textarea" maxlength="1000"></textarea>
       <button type="submit" class="contacto-submit">Enviar</button>
       <div id="contacto-success" class="contacto-success">¡Mensaje enviado!</div>
       <div id="contacto-error" class="contacto-error" style="display:none;">Error al enviar. Por favor, intenta nuevamente.</div>

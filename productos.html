@@ -67,7 +67,7 @@
                 </div>
                 <div class="servicios-main-block">
                     <div class="servicio-item animate-on-scroll fade-in-up">
-                        <div class="servicio-item-title">PROCESS MAKER ⚙️</div>
+                        <div class="servicio-item-title">PROCESSMAKER ⚙️</div>
                         <div class="servicio-item-desc"><b>El BPM/Workflow líder en automatización empresarial.</b> Cuando la reducción de costos y eficiencia operativa es imperante... ¡Automatiza! 
                         <br><br><b>Impacto comprobado:</b> 65% reducción en tiempos de proceso, 85% menos errores manuales, ROI promedio 320% en primer año
                         <br><b>Casos de éxito:</b> SONY (automatización de puntos de venta), Bancos (originación de créditos), Gobierno (trámites ciudadanos)
@@ -200,10 +200,10 @@
         <button id="close-contacto-float" class="contacto-close">&times;</button>
         <h3 class="contacto-title">Contáctanos</h3>
         <form id="contacto-form" class="contacto-form">
-      <input type="text" name="nombre" placeholder="Nombre" required class="contacto-input">
-      <input type="tel" name="telefono" placeholder="Teléfono" required class="contacto-input" pattern="[0-9]{10}">
-      <input type="email" name="email" placeholder="Correo electrónico" required class="contacto-input">
-      <textarea name="mensaje" placeholder="Mensaje" required class="contacto-textarea"></textarea>
+      <input type="text" name="nombre" placeholder="Nombre" required class="contacto-input" maxlength="70">
+      <input type="tel" name="telefono" placeholder="Teléfono" required class="contacto-input" pattern="[0-9]{10}" maxlength="15">
+      <input type="email" name="email" placeholder="Correo electrónico" required class="contacto-input" maxlength="254">
+      <textarea name="mensaje" placeholder="Mensaje" required class="contacto-textarea" maxlength="1000"></textarea>
       <button type="submit" class="contacto-submit">Enviar</button>
       <div id="contacto-success" class="contacto-success">¡Mensaje enviado!</div>
       <div id="contacto-error" class="contacto-error" style="display:none;">Error al enviar. Por favor, intenta nuevamente.</div>
