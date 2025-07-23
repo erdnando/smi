@@ -972,6 +972,19 @@ nav a:hover {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 768px) {
+  .footer-grid {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+}
 .footer-brand {
   flex: 1 1 250px;
   min-width: 220px;
@@ -1230,6 +1243,16 @@ nav a:hover {
   padding: 4rem 0 2.5rem 0;
   text-align: center;
 }
+
+@media screen and (max-width: 768px) {
+  .servicios-hero {
+    padding: 3rem 0 2rem 0;
+  }
+  
+  .servicios-title {
+    font-size: 2rem !important;
+  }
+}
 .servicios-title {
   font-size: 2.7rem;
   font-weight: 700;
@@ -1317,6 +1340,13 @@ nav a:hover {
   justify-content: center;
   max-width: 1100px;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .servicios-especializados-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 }
 .servicio-especializado-card {
   background: #fff;
@@ -1592,6 +1622,33 @@ nav a:hover {
     right: 1vw;
     bottom: 5.5rem;
   }
+  
+  /* Ajustar tamaño de tarjetas en la sección digitaliza */
+  .digitaliza-card {
+    padding: 1.5rem !important;
+  }
+  
+  /* Mejorar visualización de testimonios */
+  .testimonial-card {
+    padding: 1rem !important;
+  }
+  
+  /* Ajustar espacio de navegación */
+  .nav-links.active {
+    top: 60px !important;
+  }
+
+  /* Ajustar grid de servicios especializados */
+  .servicios-especializados-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  /* Mejorar visualización en la sección de productos */
+  .servicio-item {
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
 }
 @media (max-width: 600px) {
   .servicios-title {
@@ -1621,6 +1678,16 @@ nav a:hover {
   padding: 2rem 2rem 1.5rem 2rem;
   max-width: 340px;
   width: 90vw;
+}
+
+@media screen and (max-width: 600px) {
+  .contacto-float {
+    bottom: 70px;
+    right: 15px;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    width: 95vw;
+  }
+}
 }
 .contacto-close {
   position: absolute;
@@ -1849,5 +1916,73 @@ nav a:hover {
   
   .desktop-contacto {
     display: none !important;
+  }
+}
+
+/* Mejoras de responsividad para dispositivos móviles */
+@media screen and (max-width: 600px) {
+  /* Convertir grids de 2 columnas a 1 columna en móviles */
+  #features .container > div {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Ajustar tamaño de títulos para móviles */
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  /* Mejorar espaciado en secciones para móviles */
+  section {
+    padding: 2rem 1rem !important;
+  }
+  
+  /* Mejorar espaciado de elementos en estadísticas */
+  .stats-section .stats {
+    gap: 1rem !important;
+  }
+  
+  /* Ajustar cards para mejor visualización */
+  .digitaliza-cards {
+    gap: 1.5rem !important;
+  }
+  
+  /* Hacer que las imágenes sean responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Ajustar tamaño del logo en móviles */
+  .logo img {
+    height: 40px !important;
+  }
+  
+  /* Mejorar formulario de contacto para móviles */
+  #contacto-form input,
+  #contacto-form textarea {
+    padding: 12px !important;
+  }
+  
+  /* Aumentar tamaño de botones táctiles */
+  .btn-contacto {
+    padding: 0.8rem 1.5rem !important;
+    font-size: 1rem !important;
+  }
+  
+  /* Mejorar posición del botón WhatsApp en móviles */
+  #whatsapp-float-btn {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  /* Ajustar tamaño del popup de WhatsApp */
+  #whatsapp-chat-popup {
+    width: 90%;
+    max-width: 300px;
+    right: 10px;
   }
 }
