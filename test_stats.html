@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Stats Animation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      padding: 20px;
+    }
+    .test-button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Test Stats Animation</h1>
+  <button class="test-button" id="animate-button">Trigger Animation</button>
+  
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats flex-center flex-gap-25 flex-wrap">
+        <div class="stat">
+          <h2 class="fs-2-3 color-white fw-700"><span class="fs-1-2 fw-400">años</span></h2>
+          <p class="color-light fs-1-1">de experiencia</p>
+        </div>
+        <div class="stat">
+          <h2 class="fs-2-3 color-white fw-700"><span class="fs-1-2 fw-400">empresas</span></h2>
+          <p class="color-light fs-1-1">atendidas exitosamente</p>
+        </div>
+        <div class="stat">
+          <h2 class="fs-2-3 color-white fw-700"><span class="fs-1-2 fw-400">productos</span></h2>
+          <p class="color-light fs-1-1">tecnológicos propios</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('animate-button').addEventListener('click', function() {
+      // Reset animation flag for testing
+      statsAnimated = false;
+      // Trigger animation
+      animateStats();
+    });
+  </script>
+</body>
+</html>

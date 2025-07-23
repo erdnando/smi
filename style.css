@@ -120,6 +120,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-right: 60px;
 }
 .logo:hover svg {
   transform: scale(1.12) rotate(-6deg);
@@ -442,6 +443,144 @@ nav a:hover {
   padding: 3rem 0 2rem 0;
   text-align: center;
 }
+
+/* Estilos para las tarjetas de impacto con el mismo diseño que digitaliza-card */
+.impacto-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fbff 100%);
+  border-radius: 1.5rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05), 
+              0 5px 15px rgba(0, 0, 0, 0.03);
+  padding: 2.5rem 2rem 2rem 2rem;
+  min-width: 260px;
+  max-width: 320px;
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  transition: var(--hover-transition);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  min-height: 400px;
+  text-align: center;
+}
+
+.impacto-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(21, 101, 192, 0.05) 100%
+  );
+  opacity: 0;
+  z-index: -1;
+  transform: rotate(30deg);
+  transition: opacity 0.3s ease;
+}
+
+.impacto-card:hover {
+  box-shadow: 0 20px 40px rgba(21, 101, 192, 0.1),
+              0 12px 24px rgba(0, 0, 0, 0.05);
+  transform: translateY(-8px);
+  border: 1px solid rgba(21, 101, 192, 0.1);
+}
+
+.impacto-card:hover::after {
+  opacity: 1;
+}
+
+.impacto-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.impacto-card-icon {
+  font-size: 3rem;
+  color: var(--brand-blue);
+  margin-bottom: 1.2rem;
+  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+  transition: var(--hover-transition);
+  display: block;
+}
+
+.impacto-card:hover .impacto-card-icon {
+  transform: scale(1.15) translateY(-5px);
+}
+
+.impacto-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--brand-black);
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  text-align: center;
+  width: 100%;
+}
+
+.impacto-card h3::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 120px;
+  height: 3px;
+  background: var(--brand-gradient);
+  border-radius: 3px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.impacto-card:hover h3::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.impacto-card p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.impacto-card-metric {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--brand-blue);
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  width: 100%;
+}
+
+.impacto-card:hover .impacto-card-metric {
+  color: var(--brand-accent);
+  transform: scale(1.05);
+}
+
+.impacto-card-metric-desc {
+  font-size: 0.9em;
+  color: #666;
+  text-align: center;
+  width: 100%;
+}
 .porque-section {
   background: linear-gradient(180deg, #f7fafd 60%, #fff 100%);
   padding: 4rem 0 3rem 0;
@@ -541,12 +680,22 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 1.5rem;
   transition: var(--hover-transition);
   border: 1px solid rgba(255, 255, 255, 0.8);
   position: relative;
   overflow: hidden;
   z-index: 1;
+  min-height: 400px;
+}
+
+.digitaliza-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
 }
 
 .digitaliza-card::after {
@@ -668,6 +817,8 @@ nav a:hover {
   position: relative;
   display: inline-block;
   letter-spacing: 0.5px;
+  text-align: center;
+  width: 100%;
 }
 
 .digitaliza-card-title::after {
@@ -675,17 +826,23 @@ nav a:hover {
   position: absolute;
   bottom: -6px;
   left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
+  transform: translateX(-50%) scaleX(0);
+  width: 120px;
   height: 3px;
   background: var(--brand-gradient);
   border-radius: 3px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.digitaliza-card:hover .digitaliza-card-title::after {
+  transform: translateX(-50%) scaleX(1);
 }
 .digitaliza-card-desc {
   font-size: 1rem;
   color: #444;
   margin-bottom: 1.2rem;
-  text-align: left;
+  text-align: center;
 }
 .digitaliza-card-btn {
   background: var(--brand-gradient);
@@ -695,34 +852,21 @@ nav a:hover {
   font-weight: 700;
   text-decoration: none;
   font-size: 1rem;
-  transition: var(--hover-transition);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
   display: inline-block;
-  margin-top: 1rem;
-  box-shadow: 0 5px 15px rgba(21, 101, 192, 0.15);
+  margin-top: 0;
+  box-shadow: 0 4px 16px rgba(21, 101, 192, 0.1);
   position: relative;
   overflow: hidden;
   letter-spacing: 0.5px;
-}
-
-.digitaliza-card-btn::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -60%;
-  width: 20px;
-  height: 200%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: rotate(25deg);
-  transition: transform 0.6s ease;
+  border: none;
+  align-self: center;
 }
 
 .digitaliza-card-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(21, 101, 192, 0.25);
-}
-
-.digitaliza-card-btn:hover::after {
-  transform: translateX(400%) rotate(25deg);
+  background: linear-gradient(90deg, #1565c0 0%, #25d366 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.18);
 }
 .porque-title {
   font-size: 2.3rem;
@@ -852,13 +996,20 @@ nav a:hover {
 .footer-social-icon {
   background: #4659a1;
   color: #fff;
-  border-radius: 0.5rem;
-  padding: 0.6rem 0.8rem;
-  font-size: 1.3rem;
-  display: inline-block;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   transition: background 0.18s cubic-bezier(0.4, 2, 0.6, 1),
     transform 0.18s cubic-bezier(0.4, 2, 0.6, 1);
+}
+.footer-social-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
 }
 .footer-social-icon:hover {
   background: #1565c0;
@@ -1623,53 +1774,40 @@ nav a:hover {
   }
 }
 
-/* Style the contact button to look nicer with icon */
+/* Style the contact button to match btn-main behavior */
 .btn-contacto {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 20px;
-  border-radius: 50px;
-  background: linear-gradient(135deg, var(--brand-blue-light) 0%, rgba(255,255,255,0.9) 100%);
-  border: 2px solid var(--brand-blue);
-  color: var(--brand-blue);
+  gap: 8px;
+  padding: 0.6rem 1.2rem;  /* Reduced horizontal padding */
+  max-width: fit-content;  /* Make button fit to content */
+  border-radius: 2rem;
+  background: var(--brand-gradient);
+  color: #fff;
   font-weight: 700;
-  transition: var(--hover-transition);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
   text-decoration: none;
-  box-shadow: 0 5px 15px rgba(21, 101, 192, 0.12);
+  box-shadow: 0 4px 16px rgba(21, 101, 192, 0.1);
   position: relative;
   overflow: hidden;
   z-index: 1;
-}
-
-.btn-contacto::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--brand-gradient);
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 0.3s ease;
-  border-radius: 48px;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  border: none;
+  margin: 0 auto;  /* Center it */
 }
 
 .btn-contacto:hover {
+  background: linear-gradient(90deg, #1565c0 0%, #25d366 100%);
   color: #fff;
-  border-color: transparent;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(21, 101, 192, 0.2);
-}
-
-.btn-contacto:hover::before {
-  opacity: 1;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.18);
 }
 
 .contact-icon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   fill: currentColor;
   transition: transform 0.3s ease;
 }
@@ -1680,11 +1818,11 @@ nav a:hover {
 
 /* Mobile view contact button */
 .mobile-contacto .btn-contacto {
-  color: var(--brand-blue);
-  padding: 8px 18px;
-  border-radius: 50px;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
   margin-top: 10px;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 .mobile-contacto .btn-contacto:hover {

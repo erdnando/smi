@@ -1,0 +1,30 @@
+/* CSS changes for narrower buttons */
+.btn-contacto {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.6rem 1.2rem;  /* Reduced horizontal padding */
+  max-width: fit-content;  /* Make button fit to content */
+  border-radius: 2rem;
+  background: var(--brand-gradient);
+  color: #fff;
+  font-weight: 700;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(21, 101, 192, 0.1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  border: none;
+  margin: 0 auto;  /* Center it */
+}
+
+.btn-contacto:hover {
+  background: linear-gradient(90deg, #1565c0 0%, #25d366 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.18);
+}

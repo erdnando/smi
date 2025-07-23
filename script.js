@@ -42,24 +42,19 @@ document.addEventListener('DOMContentLoaded', function() {
    */
   const testimonials = [
     {
-      rating: '⭐⭐⭐⭐ 4/5',
-      text: 'El servicio es increible y el contacto con la empresa muy fluido, entienden muy bien mi negocio. SMI Networks se adapta con mucha rapidez a nuestras necesidades.',
-      author: 'Jose Antonio S, Bienes de consumo\n150 - 300 empleados'
+      rating: '⭐⭐⭐⭐⭐ Éxito',
+      text: 'Automatización de proceso de control de agentes y tecnologías en puntos de venta. Conexión con inventarios, RH y generación de reportes. Integración con ERP, control de asistencia, aplicación de descuentos automáticos.',
+      author: 'SONY\nProcessmaker Implementation'
     },
     {
-      rating: '⭐⭐⭐⭐⭐ 5/5',
-      text: 'Excelente plataforma, muy intuitiva y fácil de usar. El soporte técnico es rápido y eficiente.',
-      author: 'Maria Lopez, Servicios\n50 - 100 empleados'
+      rating: '⭐⭐⭐⭐⭐ Éxito',
+      text: 'Automatización de procesos de CALL CENTER. Integración con diversos sistemas (TSYS [AS/400], Java, Oracle, etc.). Centralización de una sola plataforma de procesos que conecta a los demás sistemas.',
+      author: 'INVEX Banco\nProcessmaker - 40 personas por turno'
     },
     {
-      rating: '⭐⭐⭐⭐ 4/5',
-      text: 'Nos ayudó a automatizar procesos y reducir errores en la nómina. Muy recomendable.',
-      author: 'Carlos Ruiz, Manufactura\n200 - 500 empleados'
-    },
-    {
-      rating: '⭐⭐⭐⭐⭐ 5/5',
-      text: 'La integración con bancos y la atención personalizada hacen la diferencia.',
-      author: 'Ana Torres, Retail\n100 - 200 empleados'
+      rating: '⭐⭐⭐⭐⭐ Éxito',
+      text: 'Katun: Integración de aplicaciones tales como Siebel, Portal, Metasolv utilizando arquitectura SOA y herramientas Oracle. Integración completa entre aplicaciones core. Implantación de arquitectura SOA.',
+      author: 'Cablemas\nOracle AIA Implementation'
     }
   ];
 
@@ -592,13 +587,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get all stat heading elements
     const statEls = statsSection.querySelectorAll('.stat h2');
     if (statEls.length >= 3) {
+      // Create temporary elements for the number part of each stat
+      // This preserves the spans with text like "años", "empresas", etc.
+      const stat1 = document.createElement('span');
+      const stat2 = document.createElement('span');
+      const stat3 = document.createElement('span');
+      
+      // Insert these temporary elements at the beginning of each h2
+      statEls[0].insertBefore(stat1, statEls[0].firstChild);
+      statEls[1].insertBefore(stat2, statEls[1].firstChild);
+      statEls[2].insertBefore(stat3, statEls[2].firstChild);
+      
       // Animate each counter with appropriate values and formatting
-      // First stat: "600+" (Companies)
-      animateCounter(statEls[0].querySelector('span') ? statEls[0] : statEls[0], 600, 4000, ' +');
-      // Second stat: "8 Mil+" (Million pesos processed)
-      animateCounter(statEls[1].querySelector('span') ? statEls[1] : statEls[1], 8000, 4000, ' Mil +');
-      // Third stat: "100 Mil+" (Employees managed)
-      animateCounter(statEls[2].querySelector('span') ? statEls[2] : statEls[2], 100000, 4000, ' Mil +');
+      // First stat: Years of experience
+      animateCounter(stat1, 15, 3000, '','+');
+      // Second stat: Companies served
+      animateCounter(stat2, 25, 3000, '', '+');
+      // Third stat: Products
+      animateCounter(stat3, 6, 3000, '');
     }
     
     // Mark as animated to prevent duplicate animations
