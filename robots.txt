@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /img/partners/
+Disallow: /settings.js
+
+Sitemap: https://sminetworks.com/sitemap.xml

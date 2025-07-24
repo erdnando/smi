@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios - SMI Networks</title>
+    <title>Servicios de Consultoría IT y Transformación Digital | SMI Networks</title>
+    <meta name="description" content="Servicios profesionales en transformación digital, consultoría IT, desarrollo de software a medida, implementación de sistemas y soporte técnico especializado.">
+    <meta name="keywords" content="consultoría IT, transformación digital, desarrollo de software, integración de sistemas, soporte técnico, implementación ERP">
+    
+    <!-- Canonical URL -->
+    <meta rel="canonical" href="https://sminetworks.com/servicios.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sminetworks.com/servicios.html">
+    <meta property="og:title" content="Servicios de Consultoría IT y Transformación Digital | SMI Networks">
+    <meta property="og:description" content="Servicios profesionales en transformación digital, consultoría IT, desarrollo de software a medida e implementación de sistemas.">
+    <meta property="og:image" content="https://sminetworks.com/img/smilogo.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://sminetworks.com/servicios.html">
+    <meta name="twitter:title" content="Servicios de Consultoría IT y Transformación Digital | SMI Networks">
+    <meta name="twitter:description" content="Servicios profesionales en transformación digital, consultoría IT, desarrollo de software a medida e implementación de sistemas.">
+    <meta name="twitter:image" content="https://sminetworks.com/img/smilogo.jpg">
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Estilos y script para el aviso de cookies -->
+    <link rel="stylesheet" href="cookie-consent.css">
+    <!-- IMPORTANTE: cookie-utils.js debe cargarse ANTES que cookie-consent.js -->
+    <script src="cookie-utils.js"></script>
+    <script src="cookie-consent.js" defer></script>
 </head>
 <body>
     <header>
@@ -183,11 +209,51 @@
           <a href="terminos.html">Términos y Condiciones</a>
         </div>
       </div>
-    </div>    <a href="#" class="whatsapp-float" id="whatsapp-float-btn" title="WhatsApp" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </div>    <a href="#" class="whatsapp-float" id="whatsapp-float-btn" title="Contáctanos por WhatsApp" target="_blank">
+            <img src="img/icons/whatsapp.svg" alt="Contacto por WhatsApp" width="50" height="50" />
     </a>
-    <script src="settings.js"></script>
-    <script src="script.js"></script>
+    <script src="settings.js" defer></script>
+    <script src="script.js" defer></script>
+    
+    <!-- Schema.org structured data para servicios -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Consultoría IT",
+      "provider": {
+        "@type": "Organization",
+        "name": "SMI Networks",
+        "url": "https://sminetworks.com"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "México"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Transformación Digital",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Consultoría IT",
+              "description": "Diagnóstico técnico especializado, hoja de ruta tecnológica, optimización de arquitectura y procesos."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Desarrollo de Software a Medida",
+              "description": "Aplicaciones web, móviles y de escritorio diseñadas específicamente para las necesidades de tu negocio."
+            }
+          }
+        ]
+      }
+    }
+    </script>
   </footer>
   <div class="contacto-float" id="contacto-float">
     <button id="close-contacto-float" class="contacto-close">&times;</button>

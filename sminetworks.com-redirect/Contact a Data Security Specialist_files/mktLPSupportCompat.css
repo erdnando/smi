@@ -1,0 +1,57 @@
+div.boxSpan {
+	overflow: hidden;
+}
+span.lpContentsItem.richTextSpan {
+	display: block;
+}
+span.lpContentsItem p:first-child {
+	margin-top: 0px;
+}
+a.lpImageLink img {
+	border: currentColor; border-image: none;
+}
+form.lpeRegForm {
+	margin: 0px; padding: 0px;
+}
+form.lpeRegForm ul {
+	list-style: none; margin: 0px; padding: 0px;
+}
+form.lpeRegForm li {
+	list-style: none; margin: 0px; padding: 1px 10px 3px; clear: both;
+}
+form.lpeRegForm label {
+	text-align: left; padding-right: 20px; float: left;
+}
+form.lpeRegForm li.mktLblRight label {
+	float: none;
+}
+form.lpeRegForm li.mktLblRight input[type='checkbox'] {
+	left: -4px; position: relative;
+}
+form.lpeRegForm ul.mktLblCenter label {
+	text-align: right;
+}
+form.lpeRegForm ul.mktLblAbove span.mktInput {
+	clear: both;
+}
+form.lpeRegForm ul.mktLblAbove label {
+	padding-left: 10px;
+}
+form.lpeRegForm ul.mktLblAbove li.mktFormReq label {
+	background: url("/images/forms/backRequiredGray.gif") no-repeat -5px 0px;
+}
+form.lpeRegForm ul.mktLblAbove li#mktFrmButtons label {
+	display: none;
+}
+form.lpeRegForm li.mktFormReq label {
+	background: url("/images/forms/backRequiredGray.gif") no-repeat right 0px; font-weight: bold;
+}
+span.mktError {
+	text-align: left; position: relative;
+}
+span.mktError input {
+	background: rgb(236, 239, 255);
+}
+span.mktError span.mktFormMsg {
+	left: 4px; top: 2px; width: 200px; color: red; font-size: small; display: inline; position: absolute; xcolor: #8C8FFF;
+}

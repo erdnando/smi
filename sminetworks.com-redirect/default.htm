@@ -1,0 +1,648 @@
+﻿<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "" "">
+<HTML lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  
+rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  
+skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# " 
+xmlns:video="http://ogp.me/ns/video#" xmlns:profile="http://ogp.me/ns/profile#" 
+xmlns:product="http://ogp.me/ns/product#" xmlns:book="http://ogp.me/ns/book#" 
+xmlns:article="http://ogp.me/ns/article#">
+<HEAD>
+<META content="IE=11.0000" http-equiv="X-UA-Compatible">
+<META charset="utf-8">
+<SCRIPT type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1039.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</SCRIPT>
+ 
+<META name="title" content="Smi Networks: Cloud, Mobile y SAAS"> 
+<LINK href="#" rel="shortlink"> 
+<LINK href="#" rel="canonical"> 
+<META name="description" content="Smi Networks provee soluciones para su organización."> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"> 
+<META name="MobileOptimized" content="width"> 
+<META name="HandheldFriendly" content="true"> 
+<META name="viewport" content="width=device-width, initial-scale=1.0"> 
+<LINK href="default_files/logoSMIfavicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon"> 
+<LINK href="default_files/logoSMIfavicon.png" rel="shortcut icon" type="image/x-icon">   
+<LINK 
+href="/apple-touch-icon.png" rel="apple-touch-icon">   
+<LINK href="/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">   
+<LINK href="/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">   
+<LINK href="/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">   
+<LINK href="/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">   
+<LINK href="/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">   
+<LINK href="/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">   
+<LINK href="/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">   
+<LINK href="/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">   
+<TITLE>SMI Networks: Cloud, mobile y SAAS</TITLE>   
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<LINK href="default_files/css_ii6L6bOiDqlk91j93JXc-ACQOIi86JDVxFZEDuU8cJI.css" rel="stylesheet" media="all"> 
+<LINK href="default_files/css_-UWp8pf0cOG5VrFu5l3RQJCbK2YNKyQgh6WmWs3AmAQ.css" rel="stylesheet" media="all">  
+
+
+
+<!--[if lte IE 8]>
+<script src="/sites/default/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js"></script>
+<![endif]--> 
+  <!-- Google Tag Manager -->   
+<SCRIPT>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M2CJJZW');</SCRIPT>
+   </HEAD>   
+<BODY class="node-5446 path-frontpage page-node-type-page"><!-- Google Tag Manager (noscript) --> 
+  <NOSCRIPT>&lt;iframe 
+src="https://www.googletagmanager.com/ns.html?id=GTM-M2CJJZW"height="0" 
+width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</NOSCRIPT>   
+      <A class="visually-hidden focusable" href="#main-content"> 
+     Skip to main content     </A>         
+<HEADER id="header">
+<DIV class="center">
+<DIV class="header-holder">
+
+<DIV class="logo">
+	<DIV id="block-thalesesecuritydpthemevone-branding">
+	<A title="Home" href="#" rel="home"><IMG alt="Home" src="default_files/SMInew.jpg" style="width:130px;margin-top:-26px"></A>       
+	</DIV>
+</DIV>
+
+
+<!--menu-->
+<NAV class="menu-holder">
+	<A class="nav-opener" href="#"><SPAN></SPAN></A>
+	<DIV class="nav-drop">
+		<DIV class="nav-row">
+			<DIV id="block-mainmenu">
+				<DIV>
+				 <UL class="drop-navigation accordion" id="nav" style="font-size: 20px;">
+				  <LI class="link-parent"><A class="accordion-opener" href="#tab1"><SPAN>Productos</SPAN></A></LI>
+				  <LI class="link-parent"><A class="accordion-opener" href="#tab2"><SPAN>Servicios y soluciones</SPAN></A></LI>
+				  <LI class="link-parent"><A class="accordion-opener" href="#tab3"><SPAN>Socios</SPAN></A></LI>
+				  <LI class="link-parent"><A class="accordion-opener" href="#tab4"><SPAN>Quienes somos</SPAN></A></LI>
+				  </UL>	
+				</DIV>
+			</DIV>
+		</DIV>
+		
+	</DIV>
+</NAV>
+<!--end menu -->
+</DIV>
+</DIV>
+</HEADER>
+<DIV id="LanguageSource" style="display: none;">
+<DIV class="language-switcher-language-url" id="block-languageswitcher-2" role="navigation">
+<UL class="links">
+  <LI class="en is-active" data-drupal-link-system-path="<front>" 
+  hreflang="en"><A class="language-link is-active" href="http://www.sminetworks.com/" 
+  hreflang="en" data-drupal-link-system-path="<front>">English US</A></LI>
+  <LI class="en-gb" data-drupal-link-system-path="<front>" hreflang="en-gb"><A 
+  class="language-link" href="http://www.sminetworks.com/" hreflang="en-gb" 
+  data-drupal-link-system-path="<front>">English UK</A></LI>
+  <LI class="en-au" data-drupal-link-system-path="<front>" hreflang="en-AU"><A 
+  class="language-link" href="http://www.sminetworks.com/" hreflang="en-AU" 
+  data-drupal-link-system-path="<front>">English AU</A></LI>
+  <LI class="es" data-drupal-link-system-path="<front>" hreflang="es"><A class="language-link" 
+  href="http://www.sminetworks.com/" hreflang="es" 
+  data-drupal-link-system-path="<front>">Español</A></LI>
+  <LI class="pt-pt" data-drupal-link-system-path="<front>" hreflang="pt-pt"><A 
+  class="language-link" href="http://www.sminetworks.com/" hreflang="pt-pt" 
+  data-drupal-link-system-path="<front>">Português, Portugal</A></LI>
+  <LI class="de" data-drupal-link-system-path="<front>" hreflang="de"><A class="language-link" 
+  href="http://www.sminetworks.com/" hreflang="de" 
+  data-drupal-link-system-path="<front>">Deutsch</A></LI>
+  <LI class="ja" data-drupal-link-system-path="<front>" hreflang="ja"><A class="language-link" 
+  href="http://www.sminetworks.com/" hreflang="ja" 
+  data-drupal-link-system-path="<front>">日本語</A></LI>
+  <LI class="ko" data-drupal-link-system-path="<front>" hreflang="ko"><A class="language-link" 
+  href="http://www.sminetworks.com/" hreflang="ko" 
+  data-drupal-link-system-path="<front>">한국어 (Korean)</A></LI>
+  <LI class="it" data-drupal-link-system-path="<front>" hreflang="it"><A class="language-link" 
+  href="http://www.sminetworks.com/" hreflang="it" 
+  data-drupal-link-system-path="<front>">Italiano</A></LI>
+  <LI class="ru" data-drupal-link-system-path="<front>" hreflang="ru"><A class="language-link" 
+  href="http://www.sminetworks.com/" hreflang="ru" 
+  data-drupal-link-system-path="<front>">Русский</A></LI>
+  <LI class="fr" data-drupal-link-system-path="<front>" hreflang="fr"><A class="language-link" 
+  href="http://www.sminetworks.com/" hreflang="fr" 
+  data-drupal-link-system-path="<front>">Français</A></LI>
+  <LI class="zh-hans" data-drupal-link-system-path="<front>" 
+  hreflang="zh-hans"><A class="language-link" href="http://www.sminetworks.com/" 
+  hreflang="zh-hans" data-drupal-link-system-path="<front>">Chinese, 
+  Simplified(简体中文)</A></LI>
+  </UL>
+  
+</DIV>
+</DIV>
+  
+  <main id="main" role="main">
+<DIV class="hero">
+<DIV class="views-element-container" id="block-views-block-home-main-slider-block-1">
+<DIV>
+<DIV class="js-view-dom-id-50bc177dad9e3c0b75da0595c4a68afa79f01085dee2ed8a25a5b916e946049e">
+
+
+<!--begin slider-->
+<SECTION class="slide-gallery slider">
+
+<DIV class="slide">
+<DIV class="bg" style='background-image: url("/themes/custom/thalesesecuritydpthemevone/images/securing-your-digital-transformation-home-main-banner.jpeg");'></DIV>
+<DIV class="center">
+<DIV class="text-holder">
+<DIV class="text with-bg">
+<H1>SMI Networks transformando tu mundo digital</H1>
+<P>Para Cloud, Mobile y SaaS </P>               
+</DIV></DIV></DIV></DIV>
+
+<DIV class="slide">
+	<DIV class="bg" style='background-image: url("/themes/custom/thalesesecuritydpthemevone/images/hsm-visibility-anytime-banner.jpg");'></DIV>
+	<DIV class="center">
+		<DIV class="text-holder">
+			<DIV class="text with-bg">
+				<H1>Soluciones en la nube</H1>
+				<P></P> 
+				<P>Sotflayer, Bluemix, Azure y Amazon</P>
+				<P></P>              
+			</DIV>
+		</DIV>
+	</DIV>
+</DIV>
+
+<DIV class="slide">
+	<DIV class="bg" style='background-image: url("/themes/custom/thalesesecuritydpthemevone/images/gdpr-hp-banner.jpg");'></DIV>
+	<DIV class="center">
+		<DIV class="text-holder">
+			<DIV class="text with-bg">
+				<H1>¿Estás listo para la era digital?</H1>
+				<P></P>
+				<P>
+				El poder ha cambiado, ha pasado del negocio al cliente. Esto ha creado una presión sin precedentes y mucha competencia, impulsando el ritmo de la innovación en todas las industrias.</P>
+				<P></P>              
+			 </DIV>
+		</DIV>
+	</DIV>
+</DIV>
+
+<DIV class="slide">
+<DIV class="bg" style='background-image: url("/themes/custom/thalesesecuritydpthemevone/images/zero-downtime-encryption-home-banner.jpeg");'></DIV>
+<DIV class="center">
+<DIV class="text-holder">
+<DIV class="text with-bg">
+<H1>Casos de éxito</H1>
+<LU>
+<!--<LI>Banamex</LI>-->
+<LI>SONY</LI>
+<!--<LI>Bradescard</LI>-->
+<LI>Banco INVEX</LI>
+<LI>Cablemas</LI>   
+</LU>       
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+
+<DIV class="slide">
+<DIV class="bg" style='background-image: url("/themes/custom/thalesesecuritydpthemevone/images/Securosis-Hero-Banner-Image.jpg");'></DIV>
+	<DIV class="center">
+		<DIV class="text-holder">
+			<DIV class="text with-bg">
+			<H1>Soluciones mobile de vanguardia</H1>
+			<P></P>
+			<P>Aplicaciones en la nube, soluciones nativas Android e iOS</P>
+			<P></P>             
+			</DIV>
+		</DIV>
+	</DIV>
+</DIV>
+
+
+</SECTION>
+<!--end slider-->
+
+</DIV>
+</DIV>
+</DIV>
+
+<DIV id="block-contactandchatwithus">
+	<DIV>
+		<DIV class="btn-group">
+		<A class="btn btn-white" href="#tab1">Que buscas?</A>     
+		<A class="btn" href="contactanos.html" target="_blank">Contactanos</A> 
+		</DIV>
+	</DIV>
+</DIV>
+
+<DIV id="block-socialshare">
+<DIV>
+<DIV class="getsocial gs-inline-group social-networks"></DIV></DIV>
+</DIV>
+</DIV>
+<DIV class="logos-block">
+<DIV class="center">
+<DIV id="block-homelogosection">
+<DIV>
+<DIV class="logos-holder">
+<UL class="logos">
+  <LI><IMG alt="Microsoft" src="default_files/microsoft-customer-logo.png"></LI>
+  <LI><IMG alt="Samsung" src="default_files/samsung-logo.png"></LI>
+  <LI><IMG alt="McKESSON" src="default_files/mckesson.png"></LI>
+  <LI><IMG alt="Google" src="default_files/google-customer-logo.png"></LI>
+  <LI><IMG alt="SalesForce" src="default_files/salesforce.png"></LI></UL>
+  
+</DIV></DIV></DIV></DIV>
+</DIV>
+<DIV id="block-thalesesecuritydpthemevone-content">
+<ARTICLE role="article" typeof="schema:WebPage" about="#" data-history-node-id="5446">
+<SPAN class="hidden" content="Home" property="schema:name"></SPAN> 
+    
+<DIV>
+<DIV property="schema:text">
+<SECTION class="intro">
+<DIV class="center">
+<DIV class="text center-text">
+<P>
+SMI Networks, proporciona a su organización seguridad y confianza en los sistemas y procesos sin afectar la agilidad del negocio.
+</P></DIV></DIV>
+</SECTION>
+<SECTION class="tab-section">
+<DIV class="center">
+
+<DIV class="tab-content">
+
+<DIV id="tab1">
+	<DIV class="tab-area">
+		<DIV class="img-holder">
+		<br>
+		<H2><b>Productos</b></H2>
+			<IMG class="alignleft" alt="Encryption" src="default_files/encryption.png">
+		</DIV>
+		<DIV class="text">
+
+		<IMG class="alignleft" alt="Encryption" src="default_files/pProcesMaker.png">
+		<H2><b>Process Maker</b></H2>
+		<P>
+		Cuando la reducción de costos y eficiencia operativa es una necesidad imperante en tu empresa… Automatiza!.  Mediante el BPM/Workflow de Processmaker puedes llevar a cabo un flujo ordenado de autorizaciones en integraciones a todo nivel...
+		</P>
+		
+		<IMG class="alignleft" alt="Encryption" src="default_files/pPhacePhi.png">
+		<H2><b>Face Phi</b></H2>
+		<P>
+		Seguridad biométrica de reconocimiento facial para integrarse con cualquier aplicación y en cualquier plataforma.
+Control de acceso seguro a instalaciones o aplicaciones de usuarios.
+		</P>
+		
+		<IMG class="alignleft" alt="Encryption" src="default_files/pMicroSip.png">
+		<H2><b>Microsip</b></H2>
+		<P>
+		Ventas, Factura Electrónica, Inventarios, Compras, Contabilidad, CXC, CXP,  Nómina, Bancos y Manufacturing.
+Mas de 100,000 empresas mexicanas y extranjeras utilizan el sistema administrativo Microsip. 
+		</P>
+		
+		<IMG class="alignleft" alt="Encryption" src="default_files/pMaas.png">
+		<H2><b>MaaS</b></H2>
+		<P>
+		Captura de formularios y envío de información en línea.
+Escaneo y fotografiado de imágenes dentro de la aplicación.
+Generación de expediente en la nube que puede ser consultado por terceros.
+Desarrollo propietario.
+		</P>
+		
+		<IMG class="alignleft" alt="Encryption" src="default_files/pHB.png">
+		<H2><b>Banking</b></H2>
+		<P>
+		Banca x Internet modular completamente integrada con TOPAZ
+Banca x Celular
+Banca Light x USSD
+Aplicaciones modulares para sector bancario
+		</P>
+		
+		<IMG class="alignleft" alt="Encryption" src="default_files/pPentaho.png">
+		<H2><b>Pentaho</b></H2>
+		<P>
+		Plataforma de Inteligencia de Negocios: reportes, gráficos, pdf, documentos, tablas en un solo sitio.  Ahora con integración con Processmaker.  La versión community te ofrece muchas ventajas y nosotros te decimos cómo.
+		</P>
+		
+		
+		</DIV>
+	</DIV>
+</DIV>
+
+<hr>
+<DIV id="tab2">
+<DIV class="tab-area">
+<DIV class="img-holder">
+<br>
+<H2><b>Servicios y soluciones</b></H2>
+<IMG class="alignleft" alt="Key Management" src="default_files/key-management.png">
+</DIV>
+<DIV class="text">
+<br>
+<!--<H2><b>Servicios</b></H2>-->
+<lu>
+<li>Identity Management</li>
+<li>Business Intelligence</li>
+<li>SOA & BPM</li>
+<li>Desarrollo "Llave en mano"</li>
+<li>Páginas WEB</li>
+<li><a style="cursor: pointer; cursor: hand;" class="accordion-opener" href="#tab5">Mobile</a></li>
+<li >Originación de créditos</li>
+<li ><a style="cursor: pointer; cursor: hand;" data-toggle="collapse" data-target="#divOriginacion">Consultoría</a></li>
+	<div id="divOriginacion" class="collapse"  style="  border-style: dashed;border-color: black;border-width: 5px;border-radius: 14px;margin-left: 34px;background-color: white;">
+	<p><span  style="margin-left: 15px;margin-top:10px">Implementación de Tecnologías:</span>
+	<br></p>
+	    <lu>
+		<li style="margin-left: 15px;">Integración de nuestros productos</li>
+		<li style="margin-left: 15px;">Automatización de Procesos (BPM)</li>
+		<li style="margin-left: 15px;">Sistemas administrativos (CRM, ERP)</li>
+		<li style="margin-left: 15px;">Inteligencia de Negocios (BI)</li>
+		<li style="margin-left: 15px;">Virtualización de Servidores y Aplicaciones</li>
+		<li style="margin-left: 15px;">Manufactura (MM)</li>
+		<li style="margin-left: 15px;">Administración y Planeación de Contenidos (DMS)</li>
+		<li style="margin-left: 15px;">Proyectos Llave en Mano</li>
+        </lu>
+		<br>
+	</div>
+
+<li ><a style="cursor: pointer; cursor: hand;" data-toggle="collapse" data-target="#divRH">Recursos Humanos e Infraestructura</a></li>
+	<div id="divRH" class="collapse"  style="  border-style: dashed;border-color: black;border-width: 5px;border-radius: 14px;margin-left: 34px;background-color: white;">
+	<br>
+	    <lu>
+		<li style="margin-left: 15px;">Servicios técnicos realizados por profesionales </li>
+		<li style="margin-left: 15px;">Soporte por hora/proyecto/evento</li>
+		<li style="margin-left: 15px;">Póliza de servicios y mantenimiento</li>
+		<li style="margin-left: 15px;">Atención telefónica, remota y en sitio *</li>
+		<li style="margin-left: 15px;">Nuestro corporativo cuenta con 40 MBbps de Internet síncrono</li>
+		<li style="margin-left: 15px;">Todos nuestros ingenieros utilizan laptops de última generación</li>
+		<li style="margin-left: 15px;">Disponibilidad inmediata bajo contrato</li>
+		<li style="margin-left: 15px;">Hospedaje de aplicaciones en modalidad 7x24, SLA 99.99%
+</li>
+        </lu>
+		<br>
+	</div>
+	
+
+<li ><a style="cursor: pointer; cursor: hand;" data-toggle="collapse" data-target="#divCap">Capacitación</a></li>
+	<div id="divCap" class="collapse"  style="  border-style: dashed;border-color: black;border-width: 5px;border-radius: 14px;margin-left: 34px;background-color: white;">
+	<br>
+	    <lu>
+		<li style="margin-left: 15px;">Programas de Capacitación en Tecnologías de nuestros Partners</li>
+		<li style="margin-left: 15px;">Capacitación presencial</li>
+		<li style="margin-left: 15px;">Programas de Capacitación en soluciones implementadas</li>
+        </lu>
+		<br>
+	</div>
+
+
+
+</lu>
+
+
+<!--<button data-toggle="collapse" data-target="#demo">Collapsible</button>-->
+
+
+
+
+
+</DIV></DIV></DIV>
+<hr>
+<DIV id="tab3">
+<DIV class="tab-area">
+		<DIV class="img-holder">
+		<br>
+		<H2><b>Socios</b></H2>
+			<IMG class="alignleft" alt="Encryption" src="default_files/digital-payments.png">
+		</DIV>
+		<DIV class="text">
+
+		<a href="http://www.stefanini.com" target="_blank"><IMG style="width:30%;cursor:hand" class="alignleft" alt="Encryption" src="default_files/stefanini.png"></a>
+		<H2><b>Stefanini</b></H2>
+		<P>
+		Cuando la reducción de costos y eficiencia operativa es una necesidad imperante en tu empresa… Automatiza!.  Mediante el BPM/Workflow de Processmaker puedes llevar a cabo un flujo ordenado de autorizaciones en integraciones a todo nivel...
+		</P>
+		
+		<!--<a href="http://www.ibm.com" target="_blank"><IMG style="width:30%" class="alignleft" alt="Encryption" src="default_files/IBM.png"></a>
+		<H2><b>IBM</b></H2>
+		<P>
+		Seguridad biométrica de reconocimiento facial para integrarse con cualquier aplicación y en cualquier plataforma.
+Control de acceso seguro a instalaciones o aplicaciones de usuarios.
+		</P>
+		
+		<a href="http://mx.ingrammicro.com/" target="_blank"><IMG style="width:30%" class="alignleft" alt="Encryption" src="default_files/ingram.png"></a>
+		<H2><b>Ingram</b></H2>
+		<P>-->
+		Ventas, Factura Electrónica, Inventarios, Compras, Contabilidad, CXC, CXP,  Nómina, Bancos y Manufacturing.
+Mas de 100,000 empresas mexicanas y extranjeras utilizan el sistema administrativo Microsip. 
+		</P>
+		
+		<a href="https://www.grupocva.com/page/" target="_blank"><IMG class="alignleft" alt="Encryption" src="default_files/cva.png"></a>
+		<H2><b>Grupo CVA</b></H2>
+		<P>
+		Captura de formularios y envío de información en línea.
+Escaneo y fotografiado de imágenes dentro de la aplicación.
+Generación de expediente en la nube que puede ser consultado por terceros.
+Desarrollo propietario.
+		</P>
+		
+		
+		
+		</DIV>
+	</DIV>
+</DIV>
+
+<hr>
+<DIV id="tab4">
+
+<DIV class="tab-area">
+<DIV class="img-holder">
+<br>
+<H2><b>Quienes somos</b></H2>
+<IMG class="alignleft" alt="Cloud Security" src="default_files/cloud-security.png">
+					 </DIV>
+<DIV class="text">
+<br>
+<!--<H2><b>Quienes somos</b></H2>-->
+<P>SMI Networks está formada por un equipo interdisciplinario de jóvenes profesionales mexicanos, con ilusión de participar en este proyecto empresarial y dispuesto a afrontar las necesidades que las nuevas tecnologías requieren.
+Lo que en principio fue un servicio de consultoría informática se ha convertido en una organización con liderazgo tecnológico en asociación con importantes socios comerciales en el sector de las TIC en México. 
+<br><br>
+En la actualidad abarca soluciones en sistemas y productos digitales de vanguardia, en busca de soluciones globales.
+SMI Networks cuenta con representación en ciudades importantes de la República Mexicana, gracias a la implementación de soluciones en empresas a nivel nacional. Ofrecemos soporte técnico y soluciones llave en mano a clientes que buscan compra de productos informáticos, desarrollo de software y aplicaciones, consultoría en implementación de sistemas informáticos, servicios de hosting y alojamiento, diseño gráfico y todo lo relacionado con Internet, diseño WEB, geolocalización y capacitación en sistemas tradicionales de informática.
+</P>
+
+<H2 style="font-weight: bold;">Misión</H2>
+<P>La misión de SMI Networks es la de proporcionar a las empresas y socios, de manera profesional, con calidad y a buen precio, los servicios y productos tecnológicos de vanguardia acordes a las necesidades dinámicas de los nuevos ecosistemas digitales.
+Estamos seguros que como empresa, SMI Networks, logrará dar a los clientes un servicio de consultoría, desarrollo e implementación tecnológica de sistemas y productos que se ajusten a sus necesidades, con un alto control de calidad y económicamente competitivos.
+</P> 
+
+<H2 style="font-weight: bold;">Visión</H2>
+<P>La visión de SMI Networks, es que la tecnología digital llegue a todos los clientes, adaptando dinámicamente nuestras soluciones y productos a los avances tecnológicos, siempre con un pensamiento innovador para cooperar en encontrar soluciones a los retos de la nueva era digital.
+</P> 
+
+<H2 style="font-weight: bold;">Valores</H2>
+<P>
+Nuestros valores sobre los que se sostiene esta estrategia de crecimiento y diferenciación en el servicio son:
+<lu>
+<li> <span style="font-weight: bold;">Trabajo en equipo</span>: Promoviendo y apoyando un equipo homogéneo, polivalente e interdepartamental.</li>
+<li><span style="font-weight: bold;">Colaboración</span>: Nos integramos con nuestros proveedores y clientes para mejorar día a día la calidad con los mismos para satisfacer sus necesidades.</li>
+<li><span style="font-weight: bold;">Servicio</span>: Cumplimos con nuestros compromisos y nos hacemos responsables de nuestro rendimiento en todas nuestras decisiones y acciones, basándonos en una gran voluntad de servicio por y para nuestros clientes.</li>
+<li><span style="font-weight: bold;">Innovación y mejora continua</span>: Nos damos cuenta de la importancia de mirar hacia el futuro, por tanto, ofrecemos lo último del mercado para dar un apoyo y servicio óptimo a nuestros clientes.</li>
+<li><span style="font-weight: bold;">Transparencia</span>: La implicación y compromiso del personal no sería posible sin una absoluta transparencia en los procesos, disponiendo el personal de la máxima información de la empresa.</li>
+<li><span style="font-weight: bold;">Integridad y Ética</span>: Promovemos un compromiso social y cumplimos nuestra normativa interna.</li>
+<li><span style="font-weight: bold;">Formación</span>: La empresa se preocupa de la formación continua en todos los ámbitos.</li>
+<li><span style="font-weight: bold;">Responsabilidad Social Corporativa</span>: Contribuimos activamente al mejoramiento social, económico y ambiental, para mejorar nuestra situación competitiva y valorativa.</li>
+</lu>
+<br><br>
+SMI Networks, comparte y difunde con todos sus empleados, socios comerciales y clientes estos valores, como parte de su identificación con formas más competentes de trabajar y participar en un mundo más dinámico y con grandes retos en el futuro.
+</P> 
+
+
+
+
+<br>
+<H2 style="font-weight: bold;">Casos de éxito</H2>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="font-weight: bold;text-align: center;">Cliente</th>
+        <th style="font-weight: bold;text-align: center;">Proyecto</th>
+        <th style="font-weight: bold;text-align: center;">Producto</th>
+		<th style="font-weight: bold;text-align: center;">Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+     <!-- <tr>
+        <td>Banamex</td>
+        <td>Implementaciones de regulaciones de la CNBV.
+Implementación de eBanking para interacción con el core bancario
+       </td>
+        <td>Unisys</td>
+		<td>Manejo de transferencias electrónicas de banca personal y empresarial desde la web interactuando con el core bancario</td>
+      </tr>-->
+      <tr>
+        <td>SONY</td>
+        <td>Automatización de proceso de control de agentes y tecnologías en puntos de venta. Conexión con inventarios, RH y generación de reportes</td>
+        <td>Processmaker</td>
+		<td>Integración con ERP, control de asistencia, aplicación de descuentos automáticos.
+Control de la producción y activo fijo.</td>
+      </tr>
+     <!-- <tr>
+        <td>Bradescard</td>
+        <td>Implementación de MaaS dentro del proceso de afiliación y originación.</td>
+        <td>MaaS 7x24x365</td>
+		<td>Cero papel en el proceso de afiliación.
+Control de agentes.
+Disminución de costo de oportunidad.
+En proceso….</td>
+      </tr>-->
+	  <tr>
+        <td>INVEX Banco</td>
+        <td>Automatización de procesos de CALL CENTER[15]. Integración con diversos sistemas (TSYS [AS/400], Java, Oracle, etc.). Operación de 40 personas por turno.</td>
+        <td>Processmaker</td>
+		<td>Centralización de una sola plataforma de procesos que conecta a los demás sistemas.
+Incremento significativo de la producción.</td>
+      </tr>
+	  <tr>
+        <td>Cablemas</td>
+        <td>Katun: Integración de aplicaciones tales como Siebel, Portal, Metasolv utilizando arquitectura SOA y herramientas Oracle</td>
+        <td>Oracle AIA</td>
+		<td>Integración completa entre aplicaciones core.
+Implantación de arquitectura SOA
+Reducción en tiempos de procesamiento en transacciones back end.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+</DIV>
+</DIV>
+</DIV>
+<!--end tab 4-->
+
+<hr>
+<DIV id="tab5">
+	<DIV class="tab-area">
+	<h2 style="text-align:center;"><b>Mobile<b></h2>
+		
+		<DIV class="center"><IMG alt="PKI" src="default_files/mobile.png">
+	 </DIV>
+		
+	</DIV>
+</DIV>
+
+</DIV></DIV>
+</SECTION>
+
+
+
+	 
+</DIV>
+</DIV>
+</ARTICLE></DIV>
+	 
+
+
+
+</main><FOOTER id="footer">
+<DIV class="center">
+<DIV id="block-footermenu">
+<DIV>
+<DIV class="flex-row">
+<DIV class="footer-box">
+<DIV class="logo">
+<A href="#"><IMG alt="image description" src="default_files/SMInew.jpg" style="width:130px;margin-top:-15px"></A>  
+    
+</DIV>
+<ADDRESS><SPAN class="row"><A href="tel:+52 55.6732.2981">+52 55.6732.2981</A></SPAN>
+</ADDRESS>
+<UL class="vertical-social-networks">
+  <LI><A href="https://www.facebook.com/sminetworks" target="_blank"><IMG alt="Facebook" src="default_files/Social-Icon-FaceBook.png"></A></LI>
+  <LI><A href="https://www.linkedin.com/company/sminetworks" target="_blank"><IMG alt="LinkedIn" src="default_files/Social-Icon-Linkedin.png"></A></LI>
+  <LI><A href="https://twitter.com/sminetworks" target="_blank"><IMG alt="Twitter" src="default_files/Social-Icon-Twitter.png"></A></LI>
+  <LI><A href="https://www.youtube.com/user/sminetworks" target="_blank"><IMG alt="Youtube" src="default_files/Social-Icon-Youtube.png"></A></LI></UL></DIV>
+<DIV class="footer-box"><STRONG class="h3"><A href="#tab1">Productos</A></STRONG>
+</DIV>
+<DIV class="footer-box"><STRONG class="h3"><A href="#tab2">Servicios y soluciones</A></STRONG>
+
+  </DIV>
+  
+<DIV class="footer-box"><STRONG class="h3"><A href="#tab3">Socios</A></STRONG></DIV>
+<DIV class="footer-box"><STRONG class="h3"><A href="#tab4">Quienes somos</A></STRONG></DIV>
+</DIV></DIV></DIV>
+<DIV class="footer-row">
+<DIV id="block-footercopyrights">
+<DIV>
+<P>SMI Networks 2017</P>
+<!--<UL>
+  <LI><A href="#">Privacy 
+  Policy</A></LI>
+  <LI><A href="#">Legal</A></LI>
+  <LI><A 
+href="#">Sitemap</A></LI></UL>-->
+
+</DIV></DIV></DIV></DIV></FOOTER>
+<DIV class="popup-holder">
+<DIV class="search-lightbox reveal" id="search-popup" data-reveal=""><SPAN 
+class="fancybox-close" data-close=""></SPAN>		     
+<DIV class="search-block-form" id="block-searchform" role="search" 
+data-drupal-selector="search-block-form">
+<FORM id="search-block-form" action="#" 
+method="get" accept-charset="UTF-8">
+<DIV class="js-form-item form-item js-form-type-search form-item-keys js-form-item-keys form-no-label"><LABEL 
+class="visually-hidden" for="edit-keys">Search</LABEL>         <I class="icon-search"></I> 
+<INPUT name="keys" title="Enter the terms you wish to search for." class="form-search" id="edit-keys" type="search" size="15" maxlength="128" placeholder="Let’s find what you’re looking for..." value="" data-drupal-selector="edit-keys"> 
+        </DIV>
+<DIV class="form-actions js-form-wrapper form-wrapper" id="edit-actions" 
+data-drupal-selector="edit-actions"><INPUT class="button js-form-submit form-submit" id="edit-submit" type="submit" value="Search" data-drupal-selector="edit-submit"></DIV></FORM></DIV></DIV></DIV>
+<DIV class="search-lightbox" id="FitForGDPR"></DIV>
+<SCRIPT type="text/javascript">
+    var ls=document.getElementById("LanguageSource")||"",ld=document.getElementById("LanguagesDrop"),lc=document.getElementById("LanguagesCurrent");if(""!=ls){var lslu=ls.getElementsByClassName("language-switcher-language-url");ld.innerHTML=lslu[0].innerHTML,ldas=ld.querySelectorAll("a");for(var i=0;i<ldas.length;i++){var dis=ldas[i],disp=dis.parentElement,th=dis.href,matched=th.match(/node/g)||"";disp.className.indexOf("is-active")>0&&(lc.innerHTML=disp.getAttribute("hreflang").toUpperCase()),matched.length>0&&disp.remove()}}var upld=document.getElementById("LanguagesDrop"),lnpt=upld.getElementsByClassName("pt-pt"),lnpta=lnpt[0].querySelectorAll("a")||"";""!=lnpta&&(lnpta[0].innerHTML="Português");var koLang=document.getElementsByClassName("ko")[0].childNodes[0];koLang.innerHTML=koLang.innerHTML.replace(/\W(Korean)\W/,"");
+    </SCRIPT>
+         
+<SCRIPT type="text/javascript">window.jQuery || document.write('<script src="/scripts/jquery-1.11.2.min.js"><\/script>')</SCRIPT>
+     
+<SCRIPT src="default_files/foundation.min.js" type="text/javascript"></SCRIPT>
+     
+<SCRIPT src="default_files/jquery.main.js" type="text/javascript"></SCRIPT>
+     <!-- begin olark code -->     
+
+     <!-- end olark code -->   
+<SCRIPT type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"94aff85f29","applicationID":"55450026","transactionName":"b1IEZxdXCEdWVEILV1YYJ1ARXwlaGEdXBV1nVAdQDVM=","queueTime":0,"applicationTime":16,"atts":"QxUHEV9NG0k=","errorBeacon":"bam.nr-data.net","agent":""}</SCRIPT>
+ </BODY></HTML>
